@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import ClassicCocktail from './components/ClassicCocktail';
 
 class App extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class App extends React.Component {
       cocktails: [
         {
           cocktailName: 'martini',
+          cocktailId: 1,
           isClassic: true,
           creatorName: 'unknown',
           isShaken: false,
@@ -26,6 +28,7 @@ class App extends React.Component {
         },
         {
           cocktailName: 'old fashioned',
+          cocktailId: 2,
           isClassic: true,
           creatorName: 'unknown',
           isShaken: false,
@@ -44,6 +47,7 @@ class App extends React.Component {
         },
         {
           cocktailName: 'mojito',
+          cocktailId: 3,
           isClassic: true,
           creatorName: 'unknown',
           isShaken: false,
@@ -60,8 +64,10 @@ class App extends React.Component {
             method: "muddle in glass",
             glass: "collins glass",
           }
-        }, {
+        },
+        {
           cocktailName: 'daiquiri',
+          cocktailId: 4,
           isClassic: true,
           creatorName: 'unknown',
           isShaken: true,
@@ -79,10 +85,40 @@ class App extends React.Component {
             glass: "coupe",
           }
         },
+        {
+          cocktailName: 'new fashioned',
+          cocktailId: 5,
+          isClassic: false,
+          creatorName: 'unknown',
+          isShaken: true,
+          isDoubleStrain: true,
+
+          recipe: {
+            ingredients: [
+              { ing: '2 oz artisan gasoline' },
+              { ing: '.75 oz simple syrup' },
+              { ing: '.75 oz pop rocks' },
+              { ing: '1 oz sparkling water' }
+            ],
+            garnish: 'lime wheel',
+            method: "shake with ice and double strain",
+            glass: "coupe",
+          }
+        },
 
       ]
-
     }
+  }
+
+  render() {
+    return (
+      <div>
+        <ClassicCocktail
+          id={this.state.cocktails.cocktailId}
+          list={this.state.cocktails.filter(cocktail => cocktail.isClassic === true)}
+        />
+      </div>
+    )
   }
 }
 

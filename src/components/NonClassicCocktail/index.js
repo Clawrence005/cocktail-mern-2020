@@ -1,15 +1,14 @@
 import React from 'react';
 
-function ClassicCocktail(props) {
+function NonClassicCocktail(props) {
   return (
     <div>
-      <h2>Classic Cocktails</h2>
+      <h2>NonClassicCocktail</h2>
 
       {props.list.map((cocktail) => (
         <div key={cocktail.cocktailId}>
           <h3>{cocktail.cocktailName}</h3>
-          <li>id: {cocktail.cocktailId}</li>
-          {/* <li>{cocktail.ingredients}</li> */}
+          <li>  id: {cocktail.cocktailId}</li>
           <strong>Ingredients</strong>
           {cocktail.ingredients.map((subItem) =>
             <li>{subItem}</li>)}
@@ -23,4 +22,6 @@ function ClassicCocktail(props) {
   )
 }
 
-export default ClassicCocktail;
+
+
+export default NonClassicCocktail;

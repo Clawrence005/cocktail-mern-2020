@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import ClassicCocktail from './components/ClassicCocktail';
+import NonClassicCocktail from './components/NonClassicCocktail';
 
 class App extends React.Component {
   constructor(props) {
@@ -72,8 +73,8 @@ class App extends React.Component {
             '.75 oz lime juice',
             '1 oz sparkling water'
           ],
-          garnish: 'muddle mint, add rest of ingredients, and top with sparkling water then ice',
-          method: "muddle in glass",
+          garnish: 'muddled mint',
+          method: 'muddle mint, add rest of ingredients, and top with sparkling water then ice',
           glass: "collins glass",
         },
         {
@@ -269,12 +270,12 @@ class App extends React.Component {
           list={this.state.cocktails.filter(cocktail => cocktail.isClassic)
           }
         />
-        <ClassicCocktail
+        <NonClassicCocktail
           key={this.state.cocktails.cocktailId}
           list={this.state.cocktails.filter(cocktail => cocktail.isClassic !== true)}
         />
 
-        {this.state.cocktails.map((cocktail) =>
+        {/* {this.state.cocktails.map((cocktail) =>
           <div>
             <h3>{cocktail.cocktailName}</h3>
             <ul>
@@ -283,7 +284,7 @@ class App extends React.Component {
               )}
             </ul>
           </div>
-        )}
+        )} */}
 
       </div>
 

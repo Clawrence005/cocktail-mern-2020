@@ -21,9 +21,9 @@ class App extends React.Component {
           ],
 
           ingredients: [
-            { ing: '2 oz london dry gin' },
-            { ing: '1 oz dry vermouth' },
-            { ing: '1 dash orange bitters' },
+            '2 oz london dry gin',
+            '1 oz dry vermouth',
+            '1 dash orange bitters',
           ],
           garnish: 'lemon peel',
           method: "stir the ingredients",
@@ -45,9 +45,9 @@ class App extends React.Component {
           ],
 
           ingredients: [
-            { ing: '2 oz rye whiskey' },
-            { ing: '.5 oz demerara syrup' },
-            { ing: '3 dash Angostura bitters' },
+            '2 oz rye whiskey',
+            '.5 oz demerara syrup',
+            '3 dash Angostura bitters',
           ],
           garnish: 'lemon peel',
           method: "stir the ingredients",
@@ -67,10 +67,10 @@ class App extends React.Component {
             { info: '533' }
           ],
           ingredients: [
-            { ing: '1.5 oz light cuban style rum' },
-            { ing: '.75 oz simple syrup' },
-            { ing: '.75 oz lime juice' },
-            { ing: '1 oz sparkling water' }
+            '1.5 oz light cuban style rum',
+            '.75 oz simple syrup',
+            '.75 oz lime juice',
+            '1 oz sparkling water'
           ],
           garnish: 'muddle mint, add rest of ingredients, and top with sparkling water then ice',
           method: "muddle in glass",
@@ -91,10 +91,10 @@ class App extends React.Component {
           ],
 
           ingredients: [
-            { ing: '2 oz light rum' },
-            { ing: '.75 oz simple syrup' },
-            { ing: '.75 oz lime juice' },
-            { ing: '1 oz sparkling water' }
+            '2 oz light rum',
+            '.75 oz simple syrup',
+            '.75 oz lime juice',
+            '1 oz sparkling water'
           ],
 
           garnish: 'lime wheel',
@@ -117,10 +117,10 @@ class App extends React.Component {
           ],
 
           ingredients: [
-            { ing: '2 oz light rum' },
-            { ing: '.75 oz simple syrup' },
-            { ing: '.75 oz lime juice' },
-            { ing: '1 oz sparkling water' }
+            '2 oz light rum',
+            '.75 oz simple syrup',
+            '.75 oz lime juice',
+            '1 oz sparkling water'
           ],
 
           garnish: 'lime wheel',
@@ -131,6 +131,131 @@ class App extends React.Component {
       ]
     }
   }
+  //     cocktails: [
+  //       {
+  //         cocktailName: 'martini',
+  //         cocktailId: 1,
+  //         isClassic: true,
+  //         creatorName: 'unknown',
+  //         isShaken: false,
+  //         isDoubleStrain: true,
+  //         details: [
+  //           { info: '333' },
+  //           { info: '733' },
+  //           { info: '533' }
+  //         ],
+
+  //         ingredients: [
+  //           { ing: '2 oz london dry gin' },
+  //           { ing: '1 oz dry vermouth' },
+  //           { ing: '1 dash orange bitters' },
+  //         ],
+  //         garnish: 'lemon peel',
+  //         method: "stir the ingredients",
+  //         glass: "martini",
+
+  //       },
+  //       {
+  //         cocktailName: 'old fashioned',
+  //         cocktailId: 2,
+  //         isClassic: true,
+  //         creatorName: 'unknown',
+  //         isShaken: false,
+  //         isDoubleStrain: false,
+
+  //         details: [
+  //           { info: '333' },
+  //           { info: '733' },
+  //           { info: '533' }
+  //         ],
+
+  //         ingredients: [
+  //           { ing: '2 oz rye whiskey' },
+  //           { ing: '.5 oz demerara syrup' },
+  //           { ing: '3 dash Angostura bitters' },
+  //         ],
+  //         garnish: 'lemon peel',
+  //         method: "stir the ingredients",
+  //         glass: "old fashioned glass",
+  //       },
+  //       {
+  //         cocktailName: 'mojito',
+  //         cocktailId: 3,
+  //         isClassic: true,
+  //         creatorName: 'unknown',
+  //         isShaken: false,
+  //         isDoubleStrain: false,
+
+  //         details: [
+  //           { info: '333' },
+  //           { info: '733' },
+  //           { info: '533' }
+  //         ],
+  //         ingredients: [
+  //           { ing: '1.5 oz light cuban style rum' },
+  //           { ing: '.75 oz simple syrup' },
+  //           { ing: '.75 oz lime juice' },
+  //           { ing: '1 oz sparkling water' }
+  //         ],
+  //         garnish: 'muddle mint, add rest of ingredients, and top with sparkling water then ice',
+  //         method: "muddle in glass",
+  //         glass: "collins glass",
+  //       },
+  //       {
+  //         cocktailName: 'daiquiri',
+  //         cocktailId: 4,
+  //         isClassic: false,
+  //         creatorName: 'unknown',
+  //         isShaken: true,
+  //         isDoubleStrain: true,
+
+  //         details: [
+  //           { info: '333' },
+  //           { info: '733' },
+  //           { info: '533' }
+  //         ],
+
+  //         ingredients: [
+  //           { ing: '2 oz light rum' },
+  //           { ing: '.75 oz simple syrup' },
+  //           { ing: '.75 oz lime juice' },
+  //           { ing: '1 oz sparkling water' }
+  //         ],
+
+  //         garnish: 'lime wheel',
+  //         method: "shake with ice and double strain",
+  //         glass: "coupe",
+
+  //       },
+  //       {
+  //         cocktailName: 'new fashioned',
+  //         cocktailId: 5,
+  //         isClassic: false,
+  //         creatorName: 'unknown',
+  //         isShaken: true,
+  //         isDoubleStrain: true,
+
+  //         details: [
+  //           { info: '333' },
+  //           { info: '733' },
+  //           { info: '533' }
+  //         ],
+
+  //         ingredients: [
+  //           { ing: '2 oz light rum' },
+  //           { ing: '.75 oz simple syrup' },
+  //           { ing: '.75 oz lime juice' },
+  //           { ing: '1 oz sparkling water' }
+  //         ],
+
+  //         garnish: 'lime wheel',
+  //         method: "shake with ice and double strain",
+  //         glass: "coupe",
+  //       },
+
+  //     ]
+  //   }
+  // }
 
   render() {
     return (
@@ -141,7 +266,8 @@ class App extends React.Component {
 
         <ClassicCocktail
           key={this.state.cocktails.cocktailId}
-          list={this.state.cocktails.filter(cocktail => cocktail.isClassic === true)}
+          list={this.state.cocktails.filter(cocktail => cocktail.isClassic)
+          }
         />
         <ClassicCocktail
           key={this.state.cocktails.cocktailId}
@@ -153,7 +279,7 @@ class App extends React.Component {
             <h3>{cocktail.cocktailName}</h3>
             <ul>
               {cocktail.ingredients.map((subItem) =>
-                <li>{subItem.ing}</li>
+                <li>{subItem}</li>
               )}
             </ul>
           </div>

@@ -1,7 +1,7 @@
-/* .App {
+ .App {
   text-align: center;
-}
-
+} 
+/*
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 } */
+
+.cocktail-div{
+  border: solid 3px green;
+  background-color: hsl(180, 100%, 90%);
+  width: 333px;
+}
+

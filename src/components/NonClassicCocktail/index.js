@@ -6,8 +6,15 @@ function NonClassicCocktail(props) {
       <h2>NonClassicCocktail</h2>
 
       {props.list.map((cocktail) => (
-        <div key={cocktail.cocktailId}>
+        <div className="cocktail-div"
+          key={cocktail.cocktailId}>
           <h3>{cocktail.cocktailName}</h3>
+          <img
+            src={cocktail.image}
+            alt={"image-" + cocktail.cocktailName}
+            height="190px"
+            width="auto"
+          />
           <li>  id: {cocktail.cocktailId}</li>
           <strong>Ingredients</strong>
           {cocktail.ingredients.map((subItem) =>
@@ -15,13 +22,7 @@ function NonClassicCocktail(props) {
           <p>garnish: {cocktail.garnish}</p>
           <p>method: {cocktail.method}</p>
           <p>glassware: {cocktail.glass}</p>
-          <img
 
-            src={cocktail.image}
-            alt={"image-" + cocktail.cocktailName}
-            height="190px"
-            width="190px"
-          />
         </div>
       ))}
 

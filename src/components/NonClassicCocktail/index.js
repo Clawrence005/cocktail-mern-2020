@@ -15,6 +15,13 @@ function NonClassicCocktail(props) {
           <p>garnish: {cocktail.garnish}</p>
           <p>method: {cocktail.method}</p>
           <p>glassware: {cocktail.glass}</p>
+          <img
+
+            src={cocktail.image}
+            alt={"image-" + cocktail.cocktailName}
+            height="190px"
+            width="190px"
+          />
         </div>
       ))}
 

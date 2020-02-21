@@ -29,6 +29,7 @@ class App extends React.Component {
           garnish: 'lemon peel',
           method: "stir the ingredients",
           glass: "martini",
+          image: './assets/img/cocktail1.jpeg',
 
         },
         {
@@ -53,6 +54,7 @@ class App extends React.Component {
           garnish: 'lemon peel',
           method: "stir the ingredients",
           glass: "old fashioned glass",
+          image: './assets/img/cocktail1.jpeg',
         },
         {
           cocktailName: 'mojito',
@@ -76,6 +78,7 @@ class App extends React.Component {
           garnish: 'muddled mint',
           method: 'muddle mint, add rest of ingredients, and top with sparkling water then ice',
           glass: "collins glass",
+          image: "https://images.pexels.com/photos/1224158/pexels-photo-1224158.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         },
         {
           cocktailName: 'daiquiri',
@@ -101,6 +104,7 @@ class App extends React.Component {
           garnish: 'lime wheel',
           method: "shake with ice and double strain",
           glass: "coupe",
+          image: './assets/img/cocktail1.jpeg',
 
         },
         {
@@ -127,6 +131,7 @@ class App extends React.Component {
           garnish: 'lime wheel',
           method: "shake with ice and double strain",
           glass: "coupe",
+          image: './assets/img/cocktail1.jpeg',
         },
 
       ]
@@ -274,7 +279,8 @@ class App extends React.Component {
           key={this.state.cocktails.cocktailId}
           list={this.state.cocktails.filter(cocktail => cocktail.isClassic !== true)}
         />
-
+        {/* {<img src="./assets/images/cocktail1.jpeg" alt="dd" />} */}
+        {/* <img src="./public/img/cocktail1.jpeg" alt={'cocktail'} /> */}
         {/* {this.state.cocktails.map((cocktail) =>
           <div>
             <h3>{cocktail.cocktailName}</h3>

@@ -3,10 +3,13 @@ import './App.css';
 import ClassicCocktail from './components/ClassicCocktail';
 import NonClassicCocktail from './components/NonClassicCocktail';
 import axios from 'axios';
+
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      contacts: [],
+      apiCocktails: [],
       cocktails: [
         {
           cocktailName: 'martini',
@@ -138,17 +141,87 @@ class App extends React.Component {
     }
   }
 
+  // componentDidMount() {
+  //   console.log('--component did mount');
+  //   axios
+  //     .get("https://jsonplaceholder.typicode.com/users")
+  //     .then(function (response) {
+  //       console.log(response);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+
+
+  //   axios
+  //     .get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
+  //     .then(function (response) {
+  //       console.log(response);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error)
+  //     })
+  // };
+
+
+
+
+  // componentDidMount() {
+  //   console.log('--component did mount');
+  //   axios.get("https://jsonplaceholder.typicode.com/users").then(response => {
+  //     const newContacts = response.data.map(c => {
+  //       return {
+  //         id: c.id,
+  //         name: c.name,
+  //         username: c.username,
+  //         email: c.email,
+
+  //       };
+  //     });
+  //     const newState = Object.assign({}, this.state, {
+  //       contacts: newContacts
+  //     });
+  //     console.log('newState', newState);
+  //     this.setState(newState);
+  //   }).catch(error => console.log(error))
+  // }
+
+
   componentDidMount() {
     console.log('--component did mount');
-    axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then(function (response) {
-        console.log(response);
+    let one = "https://jsonplaceholder.typicode.com/users"
+    let two = "http://dummy.restapiexample.com/api/v1/employees"
+
+    const requestOne = axios.get(one)
+    const requestTwo = axios.get(two)
+
+    axios.all([requestOne, requestTwo]).then(axios.spread((...responses) => {
+      const responseOne = responses[0].data.map(c => {
+        return {
+          id: c.id,
+          name: c.name,
+        }
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      const responseTwo = responses[1].data.data.map(c => {
+        return {
+          id: parseInt(c.id) + (10),
+          name: c.employee_name
+        }
+      })
+      console.log(responseOne, "responseOne");
+      console.log(responseTwo, "responseTwo");
+
+      this.setState((state) => ({ contacts: state.contacts.concat(responseOne) }))
+      this.setState((state) => ({ contacts: state.contacts.concat(responseTwo) }))
+
+      console.log(this.state)
+    })).catch(error => {
+      console.log(error)
+    })
+
+
   }
+
 
   render() {
     console.log('--rendering ')
@@ -164,6 +237,10 @@ class App extends React.Component {
           key={this.state.cocktails.cocktailId}
           list={this.state.cocktails.filter(cocktail => cocktail.isClassic !== true)}
         />
+
+        {this.state.contacts.map((contact, id) => (
+          <p key={contact.id}>Hello, {contact.name} id# {contact.id}!</p>
+        ))}
 
       </div>
 

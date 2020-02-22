@@ -188,14 +188,17 @@ class App extends React.Component {
 
 
   componentDidMount() {
+    let drinkParam = 'gimlet'
     console.log('--component did mount');
     let one = "https://jsonplaceholder.typicode.com/users"
-    let two = "http://dummy.restapiexample.com/api/v1/employees"
+    let two = "http://dummy.restapiexample.com/api/v1/employees";
+    let three = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkParam}`;
 
     const requestOne = axios.get(one)
     const requestTwo = axios.get(two)
+    const requestThree = axios.get(three)
 
-    axios.all([requestOne, requestTwo]).then(axios.spread((...responses) => {
+    axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...responses) => {
       const responseOne = responses[0].data.map(c => {
         return {
           id: c.id,
@@ -208,12 +211,44 @@ class App extends React.Component {
           name: c.employee_name
         }
       })
+      // const responseThree = responses[2]
+      const responseThree = responses[2].data.drinks.map(c => {
+        return {
+          drinkName: c.strDrink,
+          glassware: c.strGlass,
+          instructions: c.strInstructions,
+          ingr1: c.strIngredient1,
+          ingr2: c.strIngredient2,
+          ingr3: c.strIngredient3,
+          ingr4: c.strIngredient4,
+          ingr5: c.strIngredient5,
+          ingr6: c.strIngredient6,
+          ingr7: c.strIngredient7,
+          ingr8: c.strIngredient8,
+          ingr9: c.strIngredient9,
+          ingr10: c.strIngredient10,
+
+          ingr1Measurement: c.strMeasure1,
+          ingr2Measurement: c.strMeasure2,
+          ingr3Measurement: c.strMeasure3,
+          ingr4Measurement: c.strMeasure4,
+          ingr5Measurement: c.strMeasure5,
+          ingr6Measurement: c.strMeasure6,
+          ingr7Measurement: c.strMeasure7,
+          ingr8Measurement: c.strMeasure8,
+          ingr9Measurement: c.strMeasure9,
+          ingr10Measurement: c.strMeasure10,
+        }
+      })
+
       console.log(responseOne, "responseOne");
       console.log(responseTwo, "responseTwo");
+      console.log(responseThree, "responseThree");
 
       this.setState((state) => ({ contacts: state.contacts.concat(responseOne) }))
       this.setState((state) => ({ contacts: state.contacts.concat(responseTwo) }))
 
+      // Object.assign({}, this.state, { contacts: responseOne + responseTwo });
       console.log(this.state)
     })).catch(error => {
       console.log(error)
@@ -239,7 +274,7 @@ class App extends React.Component {
         />
 
         {this.state.contacts.map((contact, id) => (
-          <p key={contact.id}>Hello, {contact.name} id# {contact.id}!</p>
+          <p key={contact.id}>Hello, {contact.name} id# {contact.id}</p>
         ))}
 
       </div>

@@ -18,8 +18,9 @@ function ClassicCocktail(props) {
           />
           <li>id: {cocktail.cocktailId}</li>
           <strong>Ingredients</strong>
-          {cocktail.ingredients.map((subItem) =>
-            <li>{subItem}</li>)}
+          {cocktail.ingredients.map((subItem,index) =>
+    
+            <li key={index}>{subItem}</li>)}
           <p>garnish: {cocktail.garnish}</p>
           <p>method: {cocktail.method}</p>
           <p>glassware: {cocktail.glass}</p>

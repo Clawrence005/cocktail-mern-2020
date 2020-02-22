@@ -188,7 +188,7 @@ class App extends React.Component {
 
 
   componentDidMount() {
-    let drinkParam = 'gimlet'
+    let drinkParam  = 'gimlet'
     console.log('--component did mount');
     let one = "https://jsonplaceholder.typicode.com/users"
     let two = "http://dummy.restapiexample.com/api/v1/employees";

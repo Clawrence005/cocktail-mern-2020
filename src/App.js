@@ -8,6 +8,8 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      search:'mold fashioned',
+cocktailInput:'',
       contacts: [],
       apiCocktails: [],
       cocktails: [
@@ -139,31 +141,8 @@ class App extends React.Component {
 
       ]
     }
+
   }
-
-  // componentDidMount() {
-  //   console.log('--component did mount');
-  //   axios
-  //     .get("https://jsonplaceholder.typicode.com/users")
-  //     .then(function (response) {
-  //       console.log(response);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-
-
-  //   axios
-  //     .get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
-  //     .then(function (response) {
-  //       console.log(response);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error)
-  //     })
-  // };
-
-
 
 
   // componentDidMount() {
@@ -187,6 +166,9 @@ class App extends React.Component {
   // }
 
 
+updateSearch = (event)=>{
+  this.setState({search: event.target.value});
+}
   componentDidMount() {
     let drinkParam  = 'gimlet'
     console.log('--component did mount');
@@ -249,7 +231,7 @@ class App extends React.Component {
       this.setState((state) => ({ contacts: state.contacts.concat(responseTwo) }))
 
       // Object.assign({}, this.state, { contacts: responseOne + responseTwo });
-      console.log(this.state)
+      console.log('State', this.state)
     })).catch(error => {
       console.log(error)
     })
@@ -262,7 +244,13 @@ class App extends React.Component {
     console.log('--rendering ')
     return (
       <div>
-
+    {/* <input type="text"> */}
+      <hr/>
+<input 
+type="text"
+value={this.state.search}
+onChange={this.updateSearch.bind(this)}
+/>
         <ClassicCocktail
           key={this.state.cocktails.cocktailId}
           list={this.state.cocktails.filter(cocktail => cocktail.isClassic)

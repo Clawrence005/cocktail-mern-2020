@@ -1,3 +1,11 @@
+ :root:{
+ }
+ * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
  .App {
   text-align: center;
 } 
@@ -37,9 +45,73 @@
   }
 } */
 
-.cocktail-div{
-  border: solid 3px green;
-  background-color: hsl(180, 100%, 90%);
+
+body{
+  background-color: #eeeeee;
+}
+.neumorphism-sunken {
+  border: none;
+  padding: 1em;
+  background-color: #eeeeee;
   width: 333px;
+  border-radius: 15px;
+  box-shadow: 
+inset -4px -3px 7px 0 rgba(255,255,255, 1), inset
+3px 3px 5px 0 rgba(94,104,121, .288);
+
 }
 
+.neumorphism-1{
+  border: none;
+  margin: 1em;
+  padding: 1em;
+  background-color: #eeeeee;
+width: 333px;
+border-radius: 15px;
+box-shadow: 
+-4px -3px 7px 0 rgba(255,255,255, 1),
+3px 3px 5px 0 rgba(94,104,121, .288);
+}
+.cocktail-div{ 
+ 
+}
+/* -3px -3px 7px 0 #ffffff73, inset
+3px 3px 5px 0 rgba(94,104,121, .288);
+} */
+
+/* .cocktail-div{
+  margin: 2em; 
+  padding: 2em;
+
+  background-color: #eeeeee;
+  width: 333px;
+border-radius: 10px;
+background: #eeeeee;
+box-shadow:  11px 11px 21px #cacaca, 
+             -11px -11px 21px #ffffff;
+} */
+
+             /* .cocktail-div{
+  margin: 2em; 
+  padding: 2em;
+border-radius: 50px;
+background: #eeeeee;
+box-shadow:  10px 10px 20px #b7b7b7, 
+             -10px -10px 20px #ffffff;
+
+
+
+  background-color: #eeeeee;
+  width: 333px;
+} */
+
+/* .cocktail-div{
+  margin: 1em;
+  padding: 1em;
+  background-color: #eeeeee;
+  width: 333px;
+border-radius: 15px;
+
+box-shadow: 9px 9px 16px rgb(163,177,198,0.6),
+ -9px -9px 16px    rgba(255,255,255, 0.5);
+} */

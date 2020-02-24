@@ -168,6 +168,7 @@ cocktailInput:'',
 
 updateSearch = (event)=>{
   this.setState({search: event.target.value});
+  console.log(this.state)
 }
   componentDidMount() {
     let drinkParam  = 'gimlet'
@@ -242,15 +243,29 @@ updateSearch = (event)=>{
 
   render() {
     console.log('--rendering ')
+// let filteredContacts= this.props.contacts.filter(
+// (contact)=>{
+//   return contact.name.indexOf(this.state.search)!== -1;
+// }
+// )
+
+
     return (
-      <div>
-    {/* <input type="text"> */}
-      <hr/>
+       <div>
+      {/* {filteredContacts.map((contact)=>{
+        return contact.name
+      } )} */}
+     
+
 <input 
+className="neumorphism-sunken"
+
 type="text"
 value={this.state.search}
 onChange={this.updateSearch.bind(this)}
 />
+<button className="submit-button" className="neumorphism-1">Submit</button>
+
         <ClassicCocktail
           key={this.state.cocktails.cocktailId}
           list={this.state.cocktails.filter(cocktail => cocktail.isClassic)
@@ -266,10 +281,8 @@ onChange={this.updateSearch.bind(this)}
         ))}
 
       </div>
-
     )
   }
-
 }
 
 

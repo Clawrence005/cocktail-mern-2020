@@ -2,14 +2,18 @@ import React from 'react';
 import './App.css';
 import ClassicCocktail from './components/ClassicCocktail';
 import NonClassicCocktail from './components/NonClassicCocktail';
+import RecipeForm from './components/RecipeForm';
+
 import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      selectedValue: "none yet",
+      selectedOption: "option1",
       search:'mold fashioned',
-cocktailInput:'',
+      cocktailInput:'',
       contacts: [],
       apiCocktails: [],
       cocktails: [
@@ -145,6 +149,7 @@ cocktailInput:'',
   }
 
 
+
   // componentDidMount() {
   //   console.log('--component did mount');
   //   axios.get("https://jsonplaceholder.typicode.com/users").then(response => {
@@ -166,10 +171,7 @@ cocktailInput:'',
   // }
 
 
-updateSearch = (event)=>{
-  this.setState({search: event.target.value});
-  console.log(this.state)
-}
+// Api call here
   componentDidMount() {
     let drinkParam  = 'gimlet'
     console.log('--component did mount');
@@ -236,35 +238,94 @@ updateSearch = (event)=>{
     })).catch(error => {
       console.log(error)
     })
-
-
   }
+
+updateSearch = (event)=>{
+  this.setState({search: event.target.value});
+  console.log(this.state)
+}
+
+  handleOptionChange = changeEvent => {
+    this.setState({
+      selectedOption: changeEvent.target.value
+    });
+  };
+
+  handleFormSubmit = formSubmitEvent => {
+    formSubmitEvent.preventDefault();
+
+    console.log("You have submitted:", this.state.selectedOption);
+  };
 
 
   render() {
     console.log('--rendering ')
-// let filteredContacts= this.props.contacts.filter(
-// (contact)=>{
-//   return contact.name.indexOf(this.state.search)!== -1;
-// }
-// )
 
 
     return (
        <div>
-      {/* {filteredContacts.map((contact)=>{
-        return contact.name
-      } )} */}
-     
-
+       <RecipeForm/>
+<h2>search</h2>
 <input 
-className="neumorphism-sunken"
-
+className="neumorphism-negative-template"
 type="text"
 value={this.state.search}
 onChange={this.updateSearch.bind(this)}
 />
-<button className="submit-button" className="neumorphism-1">Submit</button>
+
+{/* <form onSubmit={this.handleFormSubmit}>
+
+  <div className="form-check">
+    <label>
+      <input
+        type="radio"
+        name="react-tips"
+        value="option1"
+        checked={this.state.selectedOption === "option1"}
+        onChange={this.handleOptionChange}
+        className="form-check-input"
+      />
+      Option 1
+    </label>
+  </div>
+
+  <div className="form-check">
+    <label>
+      <input
+        type="radio"
+        name="react-tips"
+        value="option2"
+        checked={this.state.selectedOption === "option2"}
+        onChange={this.handleOptionChange}
+        className="form-check-input"
+      />
+      Option 2
+    </label>
+  </div>
+
+  <div className="form-check"> 
+    <label>
+      <input
+        type="radio"
+        name="react-tips"
+        value="option3"
+        checked={this.state.selectedOption === "option3"}
+        onChange={this.handleOptionChange}
+        className="form-check-input"
+      />
+      Option 3
+    </label>
+  </div>
+
+  <div className="form-group">
+    <button className="btn btn-primary mt-2" className="neumorphism-positive-template" type="submit">
+      Save
+    </button>
+  </div>
+
+</form> */}
+
+
 
         <ClassicCocktail
           key={this.state.cocktails.cocktailId}
@@ -277,7 +338,7 @@ onChange={this.updateSearch.bind(this)}
         />
 
         {this.state.contacts.map((contact, id) => (
-          <p key={contact.id}>Hello, {contact.name} id# {contact.id}</p>
+          <p key={contact.id}> {contact.name} id# {contact.id}</p>
         ))}
 
       </div>

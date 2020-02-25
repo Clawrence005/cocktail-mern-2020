@@ -49,7 +49,7 @@
 body{
   background-color: #eeeeee;
 }
-.neumorphism-sunken {
+.neumorphism-negative-template{
   border: none;
   padding: 1em;
   background-color: #eeeeee;
@@ -61,7 +61,7 @@ inset -4px -3px 7px 0 rgba(255,255,255, 1), inset
 
 }
 
-.neumorphism-1{
+.neumorphism-positive-template{
   border: none;
   margin: 1em;
   padding: 1em;

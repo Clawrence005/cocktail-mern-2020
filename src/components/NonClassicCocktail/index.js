@@ -7,7 +7,7 @@ function NonClassicCocktail(props) {
 
       {props.list.map((cocktail) => (
         <div className="cocktail-div"
-          className="neumorphism-1"
+          className="neumorphism-positive-template"
           key={cocktail.cocktailId}>
           <h3>{cocktail.cocktailName}</h3>
           <img

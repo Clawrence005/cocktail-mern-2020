@@ -3,6 +3,7 @@ import './App.css';
 import ClassicCocktail from './components/ClassicCocktail';
 import NonClassicCocktail from './components/NonClassicCocktail';
 import RecipeForm from './components/RecipeForm';
+import Search from './components/Search';
 
 import axios from 'axios';
 
@@ -10,9 +11,10 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      search:'',
       selectedValue: "none yet",
       selectedOption: "option1",
-      search:'mold fashioned',
+      // search:'mold fashioned',
       cocktailInput:'',
       contacts: [],
       apiCocktails: [],
@@ -148,8 +150,6 @@ class App extends React.Component {
 
   }
 
-
-
   // componentDidMount() {
   //   console.log('--component did mount');
   //   axios.get("https://jsonplaceholder.typicode.com/users").then(response => {
@@ -240,93 +240,38 @@ class App extends React.Component {
     })
   }
 
-updateSearch = (event)=>{
-  this.setState({search: event.target.value});
-  console.log(this.state)
-}
+// updateSearch = (event)=>{
+//   this.setState({search: event.target.value});
+//   console.log(this.state)
+// }
 
-  handleOptionChange = changeEvent => {
-    this.setState({
-      selectedOption: changeEvent.target.value
-    });
-  };
+  // handleOptionChange = changeEvent => {
+  //   this.setState({
+  //     selectedOption: changeEvent.target.value
+  //   });
+  // };
 
-  handleFormSubmit = formSubmitEvent => {
-    formSubmitEvent.preventDefault();
+  // handleFormSubmit = formSubmitEvent => {
+  //   formSubmitEvent.preventDefault();
 
-    console.log("You have submitted:", this.state.selectedOption);
-  };
-
+  //   console.log("You have submitted:", this.state.selectedOption);
+  // };
 
   render() {
     console.log('--rendering ')
 
-
     return (
        <div>
        <RecipeForm/>
-<h2>search</h2>
+
+{/* <h2>search</h2>
 <input 
 className="neumorphism-negative-template"
 type="text"
 value={this.state.search}
 onChange={this.updateSearch.bind(this)}
-/>
-
-{/* <form onSubmit={this.handleFormSubmit}>
-
-  <div className="form-check">
-    <label>
-      <input
-        type="radio"
-        name="react-tips"
-        value="option1"
-        checked={this.state.selectedOption === "option1"}
-        onChange={this.handleOptionChange}
-        className="form-check-input"
-      />
-      Option 1
-    </label>
-  </div>
-
-  <div className="form-check">
-    <label>
-      <input
-        type="radio"
-        name="react-tips"
-        value="option2"
-        checked={this.state.selectedOption === "option2"}
-        onChange={this.handleOptionChange}
-        className="form-check-input"
-      />
-      Option 2
-    </label>
-  </div>
-
-  <div className="form-check"> 
-    <label>
-      <input
-        type="radio"
-        name="react-tips"
-        value="option3"
-        checked={this.state.selectedOption === "option3"}
-        onChange={this.handleOptionChange}
-        className="form-check-input"
-      />
-      Option 3
-    </label>
-  </div>
-
-  <div className="form-group">
-    <button className="btn btn-primary mt-2" className="neumorphism-positive-template" type="submit">
-      Save
-    </button>
-  </div>
-
-</form> */}
-
-
-
+/> */}
+<Search/>
         <ClassicCocktail
           key={this.state.cocktails.cocktailId}
           list={this.state.cocktails.filter(cocktail => cocktail.isClassic)

@@ -37,8 +37,8 @@ className="recipe-form neumorphism-positive-template">
 <h4>instructions: {this.state.instructions}</h4>
 <h4>garnish: {this.state.garnish}</h4>
 <br/>
-<h4>drink</h4>
 
+<h4>drink</h4>
 <input
 className="neumorphism-negative-template"
 type='text'
@@ -47,8 +47,8 @@ placeholder="drink"
 value={this.state.drink}
 onChange={this.handleFormChange}
 />
-
 <br/>
+
 <h4>spirit</h4>
 <input
 className="neumorphism-negative-template"
@@ -59,6 +59,7 @@ value={this.state.spirit}
 onChange={this.handleFormChange}
 />
 <br/>
+
 <h4>instructions</h4>
 <textarea
 className="neumorphism-negative-template"
@@ -69,6 +70,7 @@ value={this.state.instructions}
 onChange={this.handleFormChange}
 />
 <br/>
+
 <h4>garnish</h4>
 <input
 className="neumorphism-negative-template"

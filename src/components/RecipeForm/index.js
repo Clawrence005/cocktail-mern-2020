@@ -9,7 +9,8 @@ class RecipeForm extends React.Component {
       instructions: '',
       garnish: '',
       isShaken: true,
-      glassware: 'coupe'
+      glassware: 'coupe',
+      chosenColor: ''
     };
     this.handleFormChange = this.handleFormChange.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
@@ -149,7 +150,17 @@ glassware:    ${this.state.glassware}
             onChange={this.handleFormChange}
           />
         </label>
-
+        <br />
+        <label>Color</label>
+        <select
+          value={this.state.chosenColor}
+          onChange={this.handleFormChange}
+          name="chosenColor" >
+          <option value="blue">Blue</option>
+          <option value="red">Red</option>
+          <option value="yellow">Yellow</option>
+          <option value="green">Green</option>
+        </select>
 
 
         <button className="neumorphism-positive-template" type="submit">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import ClassicCocktail from './components/ClassicCocktail';
 import NonClassicCocktail from './components/NonClassicCocktail';
@@ -11,11 +12,11 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      search:'',
+      search: '',
       selectedValue: "none yet",
       selectedOption: "option1",
       // search:'mold fashioned',
-      cocktailInput:'',
+      cocktailInput: '',
       contacts: [],
       apiCocktails: [],
       cocktails: [
@@ -171,9 +172,9 @@ class App extends React.Component {
   // }
 
 
-// Api call here
+  // Api call here
   componentDidMount() {
-    let drinkParam  = 'gimlet'
+    let drinkParam = 'gimlet'
     console.log('--component did mount');
     let one = "https://jsonplaceholder.typicode.com/users"
     let two = "http://dummy.restapiexample.com/api/v1/employees";
@@ -240,10 +241,10 @@ class App extends React.Component {
     })
   }
 
-// updateSearch = (event)=>{
-//   this.setState({search: event.target.value});
-//   console.log(this.state)
-// }
+  // updateSearch = (event)=>{
+  //   this.setState({search: event.target.value});
+  //   console.log(this.state)
+  // }
 
   // handleOptionChange = changeEvent => {
   //   this.setState({
@@ -260,18 +261,35 @@ class App extends React.Component {
   render() {
     console.log('--rendering ')
 
-    return (
-       <div>
-       <RecipeForm/>
+    // return (
+    {/*     <Router>
+        <Link to="/">Home</Link><br/>
+        <Link to="/create">create cocktail</Link> <br/>
+        <Link to="/classic">classic cocktail</Link><br/>
+        <Link to="/nonclassic">nonclassic cocktail</Link><br/>
 
-{/* <h2>search</h2>
-<input 
-className="neumorphism-negative-template"
-type="text"
-value={this.state.search}
-onChange={this.updateSearch.bind(this)}
-/> */}
-<Search/>
+        <Route path="/" exact component={Search} />
+        <Route path="/search" exact component={Search} />
+        <Route path="/classic" exact component={ClassicCocktail} />
+        <Route path="/nonclassic" exact component={NonClassicCocktail} />
+
+        <Route path="/edit/:id" exact component={EditCocktail} /> */}
+
+
+
+
+    return (
+      <div>
+        <RecipeForm />
+
+        {/* <h2>search</h2>
+          <input
+            className="neumorphism-negative-template"
+            type="text"
+            value={this.state.search}
+            onChange={this.updateSearch.bind(this)}
+          /> */}
+        <Search />
         <ClassicCocktail
           key={this.state.cocktails.cocktailId}
           list={this.state.cocktails.filter(cocktail => cocktail.isClassic)
@@ -287,7 +305,9 @@ onChange={this.updateSearch.bind(this)}
         ))}
 
       </div>
-    )
+
+      // </Router>
+    );
   }
 }
 

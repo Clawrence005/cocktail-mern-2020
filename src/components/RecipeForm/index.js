@@ -8,8 +8,8 @@ class RecipeForm extends React.Component {
       spirit: '',
       instructions: '',
       garnish: '',
-      isShaken: true,
-      glassware: 'coupe',
+      isShaken: '',
+      glassware: '',
       chosenColor: ''
     };
     this.handleFormChange = this.handleFormChange.bind(this)
@@ -26,6 +26,7 @@ instructions: ${this.state.instructions}
 garnish:      ${this.state.garnish}
 isShaken:     ${this.state.isShaken}
 glassware:    ${this.state.glassware}
+chosen color:    ${this.state.chosenColor}
     `);
 
     this.setState({
@@ -34,7 +35,8 @@ glassware:    ${this.state.glassware}
       instructions: '',
       garnish: '',
       isShaken: '',
-      glassware: ''
+      glassware: '',
+      chosenColor: ''
     });
   }
 
@@ -55,6 +57,9 @@ glassware:    ${this.state.glassware}
         <h4>spirit: {this.state.spirit}</h4>
         <h4>instructions: {this.state.instructions}</h4>
         <h4>garnish: {this.state.garnish}</h4>
+        <h4>isShaken: {this.state.isShaken}</h4>
+        <h4>glassware: {this.state.glassware}</h4>
+        <h4>chosenColor: {this.state.chosenColor}</h4>
         <br />
 
         <h4>drink</h4>
@@ -164,7 +169,7 @@ glassware:    ${this.state.glassware}
 
 
         <button className="neumorphism-positive-template" type="submit">
-          Save
+          Submit
     </button>
       </form>
     );

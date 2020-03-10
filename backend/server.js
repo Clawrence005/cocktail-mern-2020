@@ -23,19 +23,6 @@ connection.once('open', function () {
 const cocktailRoutes = express.Router();
 app.use('/cocktails', cocktailRoutes);
 
-// cocktailRoutes.route('/').get(function (req, res) {
-//   Cocktail.find(function (err, cocktails) {
-//     if (err) {
-//       console.log(err)
-//     } else {
-//       res.json(cocktails)
-//     }
-//   });
-// });
-
-// app.get('/home/', function (req, res) {
-//   res.send('GET request to the cocktail homepage')
-// });
 
 cocktailRoutes.route('/').get(function (req, res) {
   Cocktail.find({}, function (err, cocktails) {
@@ -48,12 +35,12 @@ cocktailRoutes.route('/').get(function (req, res) {
 });
 
 
-
 app.post('/cocktails/create', (req, res) => {
   console.log('Got body:', req.body);
   let cocktail = new Cocktail({
     cocktailName: req.body.cocktailName,
     // cocktailId: req.body.cocktailId,
+    // userId: req.body.cocktailId,
     isClassic: req.body.isClassic,
     creatorName: req.body.creatorName,
     isShaken: req.body.isShaken,

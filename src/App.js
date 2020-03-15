@@ -6,6 +6,7 @@ import NonClassicCocktail from './components/NonClassicCocktail';
 import RecipeForm from './components/RecipeForm';
 import Search from './components/Search';
 
+//responsible for sending the post to the backend
 import axios from 'axios';
 
 class App extends React.Component {
@@ -171,75 +172,83 @@ class App extends React.Component {
   //   }).catch(error => console.log(error))
   // }
 
-
-  // Api call here
   componentDidMount() {
-    let drinkParam = 'gimlet'
-    console.log('--component did mount');
-    let one = "https://jsonplaceholder.typicode.com/users"
-    let two = "http://dummy.restapiexample.com/api/v1/employees";
-    let three = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkParam}`;
-
-    const requestOne = axios.get(one)
-    const requestTwo = axios.get(two)
-    const requestThree = axios.get(three)
-
-    axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...responses) => {
-      const responseOne = responses[0].data.map(c => {
-        return {
-          id: c.id,
-          name: c.name,
-        }
+    axios.get('http://localhost:4000/cocktails/')
+      .then(response => {
+        this.setState({ cocktails: response.data });
       })
-      const responseTwo = responses[1].data.data.map(c => {
-        return {
-          id: parseInt(c.id) + (10),
-          name: c.employee_name
-        }
+      .catch(function (error) {
+        console.log(error);
       })
-      // const responseThree = responses[2]
-      const responseThree = responses[2].data.drinks.map(c => {
-        return {
-          drinkName: c.strDrink,
-          glassware: c.strGlass,
-          instructions: c.strInstructions,
-          ingr1: c.strIngredient1,
-          ingr2: c.strIngredient2,
-          ingr3: c.strIngredient3,
-          ingr4: c.strIngredient4,
-          ingr5: c.strIngredient5,
-          ingr6: c.strIngredient6,
-          ingr7: c.strIngredient7,
-          ingr8: c.strIngredient8,
-          ingr9: c.strIngredient9,
-          ingr10: c.strIngredient10,
-
-          ingr1Measurement: c.strMeasure1,
-          ingr2Measurement: c.strMeasure2,
-          ingr3Measurement: c.strMeasure3,
-          ingr4Measurement: c.strMeasure4,
-          ingr5Measurement: c.strMeasure5,
-          ingr6Measurement: c.strMeasure6,
-          ingr7Measurement: c.strMeasure7,
-          ingr8Measurement: c.strMeasure8,
-          ingr9Measurement: c.strMeasure9,
-          ingr10Measurement: c.strMeasure10,
-        }
-      })
-
-      console.log(responseOne, "responseOne");
-      console.log(responseTwo, "responseTwo");
-      console.log(responseThree, "responseThree");
-
-      this.setState((state) => ({ contacts: state.contacts.concat(responseOne) }))
-      this.setState((state) => ({ contacts: state.contacts.concat(responseTwo) }))
-
-      // Object.assign({}, this.state, { contacts: responseOne + responseTwo });
-      console.log('State', this.state)
-    })).catch(error => {
-      console.log(error)
-    })
   }
+  // Api call here
+  // componentDidMount() {
+  //   let drinkParam = 'gimlet'
+  //   console.log('--component did mount');
+  //   let one = "https://jsonplaceholder.typicode.com/users"
+  //   let two = "http://dummy.restapiexample.com/api/v1/employees";
+  //   let three = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkParam}`;
+
+  //   const requestOne = axios.get(one)
+  //   const requestTwo = axios.get(two)
+  //   const requestThree = axios.get(three)
+
+  //   axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...responses) => {
+  //     const responseOne = responses[0].data.map(c => {
+  //       return {
+  //         id: c.id,
+  //         name: c.name,
+  //       }
+  //     })
+  //     const responseTwo = responses[1].data.data.map(c => {
+  //       return {
+  //         id: parseInt(c.id) + (10),
+  //         name: c.employee_name
+  //       }
+  //     })
+  //     // const responseThree = responses[2]
+  //     const responseThree = responses[2].data.drinks.map(c => {
+  //       return {
+  //         drinkName: c.strDrink,
+  //         glassware: c.strGlass,
+  //         instructions: c.strInstructions,
+  //         ingr1: c.strIngredient1,
+  //         ingr2: c.strIngredient2,
+  //         ingr3: c.strIngredient3,
+  //         ingr4: c.strIngredient4,
+  //         ingr5: c.strIngredient5,
+  //         ingr6: c.strIngredient6,
+  //         ingr7: c.strIngredient7,
+  //         ingr8: c.strIngredient8,
+  //         ingr9: c.strIngredient9,
+  //         ingr10: c.strIngredient10,
+
+  //         ingr1Measurement: c.strMeasure1,
+  //         ingr2Measurement: c.strMeasure2,
+  //         ingr3Measurement: c.strMeasure3,
+  //         ingr4Measurement: c.strMeasure4,
+  //         ingr5Measurement: c.strMeasure5,
+  //         ingr6Measurement: c.strMeasure6,
+  //         ingr7Measurement: c.strMeasure7,
+  //         ingr8Measurement: c.strMeasure8,
+  //         ingr9Measurement: c.strMeasure9,
+  //         ingr10Measurement: c.strMeasure10,
+  //       }
+  //     })
+
+  //     console.log(responseOne, "responseOne");
+  //     console.log(responseTwo, "responseTwo");
+  //     console.log(responseThree, "responseThree");
+
+  //     this.setState((state) => ({ contacts: state.contacts.concat(responseOne) }))
+  //     this.setState((state) => ({ contacts: state.contacts.concat(responseTwo) }))
+
+  //     // Object.assign({}, this.state, { contacts: responseOne + responseTwo });
+  //     console.log('State', this.state)
+  //   })).catch(error => {
+  //     console.log(error)
+  //   })
+  // }
 
   // updateSearch = (event)=>{
   //   this.setState({search: event.target.value});

@@ -9,11 +9,13 @@ const Schema = mongoose.Schema;
 let CocktailSchema = new Schema({
   // date: { type: Date, trim: true, default: Date.now },
   cocktailName: { type: String },
-  // cocktailId: [UserSchema],
-  isClassic: { type: Boolean },
+  // cocktailId: [UserSchema], 
   creatorName: { type: String },
+
+  isClassic: { type: Boolean },
   isShaken: { type: Boolean },
   isDoubleStrain: { type: Boolean },
+
   details: [Schema.Types.Mixed],
   // ingredients: [String],
   // ingredients: [{
@@ -21,9 +23,12 @@ let CocktailSchema = new Schema({
   //   meas: String
   // }],
   ingredients: [Schema.Types.Mixed],
-  garnish: { type: String },
   method: { type: String },
+
+  garnish: { type: String },
   glass: { type: String },
+  chosenColor: { type: String }
+
   // image: { type: String, trim: true },
 }, { timestamps: true });
 

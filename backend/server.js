@@ -1,3 +1,28 @@
+// const express = require('express');
+// const app = express();
+// const mongoose = require('mongoose');
+// const bodyParser = require('body-parser');
+
+// const PORT = 4000;
+// const cors = require('cors');
+// const config = require('./DB');
+// const ServerPortRouter = require('./routes/ServerPortRouter');
+
+// mongoose.connect(config.DB).then(
+//     () => {console.log('Database is connected') },
+//     err => { console.log('Can not connect to the database' +err)
+// });
+
+// app.use(cors());
+// app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser.json());
+
+// app.use('/serverport', ServerPortRouter);
+
+// app.listen(PORT, function(){
+//   console.log('Server is running on Port: ',PORT);
+// });
+//
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -41,15 +66,17 @@ cocktailRoutes.route('/create').post(function (req, res) {
     cocktailName: req.body.cocktailName,
     // cocktailId: req.body.cocktailId,
     // userId: req.body.cocktailId,
-    isClassic: req.body.isClassic,
     creatorName: req.body.creatorName,
+    isClassic: req.body.isClassic,
     isShaken: req.body.isShaken,
     isDoubleStrain: req.body.isDoubleStrain,
     details: req.body.details,
     ingredients: req.body.ingredients,
-    garnish: req.body.garnish,
     method: req.body.method,
-    glass: req.body.glass
+    garnish: req.body.garnish,
+
+    glass: req.body.glass,
+    chosenColor: req.body.chosenColor,
   });
   cocktail.save(function (err) {
     if (err) {

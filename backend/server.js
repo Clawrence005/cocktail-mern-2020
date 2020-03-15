@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect('mongodb://127.0.0.1:27017/cocktailmern', { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect('mongodb://127.0.0.1:27017/cocktailmern', { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
 
 
 // mongoose.connect(process.env.test_db, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
@@ -133,7 +133,7 @@ cocktailRoutes.route('/:id').get(function (req, res) {
 cocktailRoutes.route('/update-id/:id').post(function (req, res) {
   Cocktail.findById(req.params.id, function (err, cocktail) {
     if (!cocktail)
-      res.status(404).send('data not found');
+      res.status(404).send('cocktail with this id not found');
     else
       cocktail.cocktailName = req.body.cocktailName;
     cocktail.cocktailId = req.body.cocktailId;
@@ -152,14 +152,14 @@ cocktailRoutes.route('/update-id/:id').post(function (req, res) {
   });
 });
 
-
-
-// const connection = mongoose.connection;
-// connection.once('open', function () {
-//   console.log("MongoDB database connection established successfully");
-// });
-
-// app.use('/cocktails', cocktailRoutes);
+cocktailRoutes.route('/delete/:id').delete(function (req, res) {
+  Cocktail.findByIdAndRemove(req.params.id, function (err, cocktail) {
+    if (!cocktail)
+      res.status(404).send('cocktail with this id not found');
+    else
+      res.status(200).send('cocktail with this id deleted');
+  })
+});
 
 app.listen(PORT, function () {
   console.log("Server is running on Port: " + PORT);

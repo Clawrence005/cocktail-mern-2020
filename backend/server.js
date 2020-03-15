@@ -7,11 +7,13 @@ const PORT = 4000;
 
 let Cocktail = require('./model/cocktail.model')
 let User = require('./model/user.model')
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect('mongodb://127.0.0.1:27017/cocktailmern', { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
+mongoose.set('useCreateIndex', true);
 
 const connection = mongoose.connection;
 connection.once('open', function () {
@@ -20,7 +22,8 @@ connection.once('open', function () {
 const cocktailRoutes = express.Router();
 app.use('/cocktails', cocktailRoutes);
 
-
+const userRoutes = express.Router();
+app.use('/users', userRoutes);
 
 cocktailRoutes.route('/').get(function (req, res) {
   Cocktail.find({}, function (err, cocktails) {
@@ -107,10 +110,6 @@ cocktailRoutes.route('/delete/:id').delete(function (req, res) {
   })
 });
 
-
-const userRoutes = express.Router();
-app.use('users', userRoutes);
-
 // read
 userRoutes.route('/').get(function (req, res) {
   User.find({}, function (err, users) {
@@ -123,13 +122,27 @@ userRoutes.route('/').get(function (req, res) {
   })
 });
 // create
-userRoutes.route().post();
+userRoutes.route('/create').post(function (req, res) {
+  console.log('Got body:', req.body);
+  let user = new User({
+    userName: req.body.userName,
+    email: req.body.email,
+    bio: req.body.bio,
+    image: req.body.image,
+  });
+  user.save(function (err) {
+    if (err) {
+      return err;
+    }
+    res.json(user)
+  });
+});
 
 // update
-userRoutes.route().put();
+// userRoutes.route().put();
 
 // delete
-userRoutes.route().delete();
+// userRoutes.route().delete();
 
 app.listen(PORT, function () {
   console.log("Server is running on Port: " + PORT);

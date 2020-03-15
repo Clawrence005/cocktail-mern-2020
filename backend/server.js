@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const PORT = 4000;
 
 let Cocktail = require('./model/cocktail.model')
-
+let User = require('./model/user.model')
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -57,15 +57,15 @@ cocktailRoutes.route('/create').post(function (req, res) {
   })
 });
 
-cocktailRoutes.route('/all').get(function (req, res) {
-  Cocktail.find({}, function (err, cocktails) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.json(cocktails);
-    }
-  });
-});
+// cocktailRoutes.route('/all').get(function (req, res) {
+//   Cocktail.find({}, function (err, cocktails) {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       res.json(cocktails);
+//     }
+//   });
+// });
 
 cocktailRoutes.route('/:id').get(function (req, res) {
   let id = req.params.id;
@@ -111,8 +111,25 @@ cocktailRoutes.route('/delete/:id').delete(function (req, res) {
 const userRoutes = express.Router();
 app.use('users', userRoutes);
 
+// read
+userRoutes.route('/').get(function (req, res) {
+  User.find({}, function (err, users) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.status(200).json(users)
+    }
+  })
+});
+// create
+userRoutes.route().post();
 
+// update
+userRoutes.route().put();
 
+// delete
+userRoutes.route().delete();
 
 app.listen(PORT, function () {
   console.log("Server is running on Port: " + PORT);

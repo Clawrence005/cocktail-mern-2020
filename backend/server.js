@@ -67,6 +67,7 @@ cocktailRoutes.route('/create').post(function (req, res) {
     // cocktailId: req.body.cocktailId,
     // userId: req.body.cocktailId,
     creatorName: req.body.creatorName,
+    cocktailImage: req.body.cocktailImage,
     isClassic: req.body.isClassic,
     isShaken: req.body.isShaken,
     isDoubleStrain: req.body.isDoubleStrain,
@@ -111,20 +112,20 @@ cocktailRoutes.route('/update/:id').post(function (req, res) {
       res.status(404).send('cocktail with this id not found');
     else
       cocktail.cocktailName = req.body.cocktailName;
-    cocktail.isClassic = req.body.isClassic;
     cocktail.creatorName = req.body.creatorName;
+    cocktail.cocktailImage = req.body.cocktailImage;
+    cocktail.isClassic = req.body.isClassic;
     cocktail.isShaken = req.body.isShaken;
     cocktail.details = req.body.details;
     cocktail.ingredients = req.body.ingredients;
     cocktail.garnish = req.body.garnish;
     cocktail.method = req.body.method;
     cocktail.glass = req.body.glass;
+    cocktail.chosenColor = req.body.chosenColor;
 
     cocktail.save().then(cocktail => {
       res.status(200).json(`cocktail ${cocktail.cocktailName} updated`)
-    })
-
-
+    });
   });
 });
 

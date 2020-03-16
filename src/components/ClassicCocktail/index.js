@@ -7,21 +7,20 @@ function ClassicCocktail(props) {
       <h2>Classic Cocktails</h2>
 
       {props.list.map((cocktail) => (
-        <div className="cocktail-div"
-        className="neumorphism-positive-template"
-          key={cocktail.cocktailId}>
+        <div className="cocktail-div neumorphism-positive-template"
+          key={cocktail._id}>
           <h3>{cocktail.cocktailName}</h3>
           <img
-    
+
             src={cocktail.image}
             alt={"image-" + cocktail.cocktailName}
             height="190px"
             width="auto"
           />
-          <li>id: {cocktail.cocktailId}</li>
+          <li>id: {cocktail._id}</li>
           <strong>Ingredients</strong>
-          {cocktail.ingredients.map((subItem,index) =>
-    
+          {cocktail.ingredients.map((subItem, index) =>
+
             <li key={index}>{subItem}</li>)}
           <p>garnish: {cocktail.garnish}</p>
           <p>method: {cocktail.method}</p>

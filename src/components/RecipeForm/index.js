@@ -5,17 +5,18 @@ class RecipeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cocktailName: '',
+      cocktailName: 'goop',
 
-      creatorName: '',
+      creatorName: 'schmidtty',
+      cocktailImage: './assets/img/cocktail1.jpeg',
       isClassic: false,
       isShaken: false,
       isDoubleStrain: false,
-      details: '',
-      ingredients: '',
-      garnish: '',
-      method: '',
-      glass: '',
+      details: 'dasdad',
+      ingredients: 'adasdsad,\n asdasdasd,\n asdasd',
+      garnish: 'lemon',
+      method: 'ascdad',
+      glass: 'coupe',
       chosenColor: 'blue',
     };
     this.handleFormChange = this.handleFormChange.bind(this)
@@ -31,6 +32,7 @@ You are submitting:
 cocktailName:   ${this.state.cocktailName} 
 isClassic:       ${this.state.isClassic}
 creatorName:     ${this.state.creatorName}
+image: ${this.state.cocktailImage}
 isShaken:       ${this.state.isShaken}
 isDoubleStrain: ${this.state.isDoubleStrain}
 details:        ${this.state.details}
@@ -44,6 +46,7 @@ chosen color:    ${this.state.chosenColor}
     const newCocktail = {
       cocktailName: this.state.cocktailName,
       isClassic: this.state.isClassic,
+      cocktailImage: './assets/img/cocktail1.jpeg',
       creatorName: this.state.creatorName,
       isShaken: this.state.isShaken,
       isDoubleStrain: this.state.isDoubleStrain,
@@ -61,7 +64,7 @@ chosen color:    ${this.state.chosenColor}
     this.setState({
       cocktailName: '',
       creatorName: '',
-
+      cocktailImage: './assets/img/cocktail1.jpeg',
       isClassic: false,
       isShaken: false,
       isDoubleStrain: false,
@@ -91,7 +94,7 @@ chosen color:    ${this.state.chosenColor}
         <h1>Save Your Recipe </h1>
         <h4>cocktailName: {this.state.cocktailName}</h4>
         <h4>creatorName: {this.state.creatorName}</h4>
-
+        <h4>cocktailImage: </h4>{this.state.cocktailImage}
         <h4>isClassic: {this.state.isClassic}</h4>
         <h4>isShaken: {this.state.isShaken}</h4>
         <h4>isDoubleStrain: {this.state.isDoubleStrain}</h4>
@@ -125,8 +128,20 @@ chosen color:    ${this.state.chosenColor}
           onChange={this.handleFormChange}
         />
         <br />
+        {/* <h4>Image</h4>
+        <input
+          className="neumorphism-negative-template"
+          type='text'
+          name="cocktailImage"
+          placeholder="cocktailImage"
+          value={this.state.cocktailImage}
+          onChange={this.handleFormChange}
+        />
+        <br /> */}
 
-        <label>Is This drink Classic?
+        <h4>Is This drink: </h4>
+        <br />
+        <label> a Classic?
         <input
             type="checkbox"
             name="isClassic"
@@ -134,8 +149,9 @@ chosen color:    ${this.state.chosenColor}
             onChange={this.handleFormChange}
           />
         </label>
+        <br />
 
-        <label>Is This drink shaken?
+        <label>  shaken?
         <input
             type="checkbox"
             name="isShaken"
@@ -143,8 +159,9 @@ chosen color:    ${this.state.chosenColor}
             onChange={this.handleFormChange}
           />
         </label>
+        <br />
 
-        <label>Is This drink double strained?
+        <label> double strained?
         <input
             type="checkbox"
             name="isDoubleStrain"
@@ -152,6 +169,7 @@ chosen color:    ${this.state.chosenColor}
             onChange={this.handleFormChange}
           />
         </label>
+        <br />
 
         <h4>details</h4>
         <textarea
@@ -195,7 +213,7 @@ chosen color:    ${this.state.chosenColor}
           value={this.state.garnish}
           onChange={this.handleFormChange}
         />
-
+        <br />
 
         <h4>Glassware</h4>
         <label>coupe

@@ -11,6 +11,7 @@ let CocktailSchema = new Schema({
   cocktailName: { type: String },
   // cocktailId: [UserSchema], 
   creatorName: { type: String },
+  cocktailImage: [Schema.Types.Mixed],
 
   isClassic: { type: Boolean },
   isShaken: { type: Boolean },

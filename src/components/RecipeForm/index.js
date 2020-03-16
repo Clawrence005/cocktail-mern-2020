@@ -18,15 +18,22 @@ class RecipeForm extends React.Component {
       glass: 'coupe',
       chosenColor: 'blue',
     };
-    this.handleFormChange = this.handleFormChange.bind(this)
-    this.handleFormSubmit = this.handleFormSubmit.bind(this)
+    this.handleCocktailFormChange = this.handleCocktailFormChange.bind(this)
+    this.handleCocktailFormSubmit = this.handleCocktailFormSubmit.bind(this)
   }
 
-  handleFormSubmit = (event) => {
+  handleCocktailFormChange = (event) => {
+    const { name, value, type, checked } = event.target
+    // this.setState({ [event.target.name]: event.target.value });
+    type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({
+      [name]: value
+    })
+  }
+
+  handleCocktailFormSubmit = (event) => {
     event.preventDefault();
     console.log('Form submitted:')
     alert(`
-
 You are submitting: 
 cocktailName:   ${this.state.cocktailName} 
 isClassic:       ${this.state.isClassic}
@@ -41,7 +48,7 @@ method:         ${this.state.method}
 glass:           ${this.state.glass}
 chosen color:    ${this.state.chosenColor}
     `);
-    //creat new cocktail object
+    //create new cocktail object from state
     const newCocktail = {
       cocktailName: this.state.cocktailName,
       isClassic: this.state.isClassic,
@@ -79,23 +86,13 @@ chosen color:    ${this.state.chosenColor}
     //   glass: 'coupe',
     //   chosenColor: 'blue',
     // });
-
   }
-
-  handleFormChange = (event) => {
-    const { name, value, type, checked } = event.target
-    // this.setState({ [event.target.name]: event.target.value });
-    type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({
-      [name]: value
-    })
-  }
-
 
 
   render() {
     return (
       <form
-        onSubmit={this.handleFormSubmit}
+        onSubmit={this.handleCocktailFormSubmit}
         className="recipe-form neumorphism-positive-template">
         <h1>Save Your Recipe </h1>
         {/* <h4>cocktailName: {this.state.cocktailName}</h4>
@@ -120,7 +117,7 @@ chosen color:    ${this.state.chosenColor}
           name="cocktailName"
           placeholder="Drink Name"
           value={this.state.cocktailName}
-          onChange={this.handleFormChange}
+          onChange={this.handleCocktailFormChange}
         />
         <br />
 
@@ -131,7 +128,7 @@ chosen color:    ${this.state.chosenColor}
           name="creatorName"
           placeholder="creatorName"
           value={this.state.creatorName}
-          onChange={this.handleFormChange}
+          onChange={this.handleCocktailFormChange}
         />
         <br />
         {/* <h4>Image</h4>
@@ -152,7 +149,7 @@ chosen color:    ${this.state.chosenColor}
             type="checkbox"
             name="isClassic"
             checked={this.state.isClassic}
-            onChange={this.handleFormChange}
+            onChange={this.handleCocktailFormChange}
           />
         </label>
         <br />
@@ -162,7 +159,7 @@ chosen color:    ${this.state.chosenColor}
             type="checkbox"
             name="isShaken"
             checked={this.state.isShaken}
-            onChange={this.handleFormChange}
+            onChange={this.handleCocktailFormChange}
           />
         </label>
         <br />
@@ -172,7 +169,7 @@ chosen color:    ${this.state.chosenColor}
             type="checkbox"
             name="isDoubleStrain"
             checked={this.state.isDoubleStrain}
-            onChange={this.handleFormChange}
+            onChange={this.handleCocktailFormChange}
           />
         </label>
         <br />
@@ -184,7 +181,7 @@ chosen color:    ${this.state.chosenColor}
           name="details"
           placeholder="details"
           value={this.state.details}
-          onChange={this.handleFormChange}
+          onChange={this.handleCocktailFormChange}
         />
         <br />
 
@@ -195,7 +192,7 @@ chosen color:    ${this.state.chosenColor}
           name="ingredients"
           placeholder="ingredients"
           value={this.state.ingredients}
-          onChange={this.handleFormChange}
+          onChange={this.handleCocktailFormChange}
         />
         <br />
 
@@ -206,7 +203,7 @@ chosen color:    ${this.state.chosenColor}
           name="method"
           placeholder="method"
           value={this.state.method}
-          onChange={this.handleFormChange}
+          onChange={this.handleCocktailFormChange}
         />
         <br />
 
@@ -217,7 +214,7 @@ chosen color:    ${this.state.chosenColor}
           name="garnish"
           placeholder="garnish"
           value={this.state.garnish}
-          onChange={this.handleFormChange}
+          onChange={this.handleCocktailFormChange}
         />
         <br />
 
@@ -228,7 +225,7 @@ chosen color:    ${this.state.chosenColor}
             name="glass"
             value="coupe"
             checked={this.state.glass === "coupe"}
-            onChange={this.handleFormChange}
+            onChange={this.handleCocktailFormChange}
           />
         </label>
         <br />
@@ -239,7 +236,7 @@ chosen color:    ${this.state.chosenColor}
             name="glass"
             value="collins"
             checked={this.state.glass === "collins"}
-            onChange={this.handleFormChange}
+            onChange={this.handleCocktailFormChange}
           />
         </label>
         <br />
@@ -249,7 +246,7 @@ chosen color:    ${this.state.chosenColor}
             name="glass"
             value="rocks"
             checked={this.state.glass === "rocks"}
-            onChange={this.handleFormChange}
+            onChange={this.handleCocktailFormChange}
           />
         </label>
         <br />
@@ -259,7 +256,7 @@ chosen color:    ${this.state.chosenColor}
             name="glass"
             value="tiki"
             checked={this.state.glass === "tiki"}
-            onChange={this.handleFormChange}
+            onChange={this.handleCocktailFormChange}
           />
         </label>
         <br />
@@ -267,7 +264,7 @@ chosen color:    ${this.state.chosenColor}
         <label>Color</label>
         <select
           value={this.state.chosenColor}
-          onChange={this.handleFormChange}
+          onChange={this.handleCocktailFormChange}
           name="chosenColor" >
           <option value="blue">Blue</option>
           <option value="red">Red</option>

@@ -166,10 +166,24 @@ userRoutes.route('/create').post(function (req, res) {
   });
 });
 
-// update
-// userRoutes.route().put();
+// update user
+userRoutes.route('/update/:id').put(function (req, res) {
+  User.findById(req.params.id, function (err, user) {
+    if (!user)
+      res.status(404).send('user with id not found')
+    else
+      user.userName = req.body.userName;
+    user.email = req.body.email;
+    user.bio = req.body.bio;
+    user.userImage = req.body.userImage;
 
-// delete
+    user.save().then(user => {
+      res.status(200).json(`user ${user.userName} updated`)
+    })
+  })
+});
+
+// delete user
 userRoutes.route('/delete/:id').delete(function (req, res) {
   User.findOneAndRemove(req.params.id, function (err, user) {
     if (!user)

@@ -337,6 +337,7 @@ class App extends React.Component {
 
     return (
       <div>
+
         <RecipeForm />
 
         {/* <h2>search</h2>
@@ -365,7 +366,6 @@ class App extends React.Component {
 
       </div>
 
-      // </Router>
     );
   }
 }

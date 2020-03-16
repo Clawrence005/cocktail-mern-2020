@@ -1,4 +1,5 @@
 import React from 'react';
+// import { Link } from 'react-router-dom';
 
 function ClassicCocktail(props) {
   return (
@@ -14,7 +15,7 @@ function ClassicCocktail(props) {
           <h3>{cocktail.cocktailName}</h3>
           <img
 
-            src={cocktail.image}
+            src={cocktail.cocktailImage}
             alt={"image-" + cocktail.cocktailName}
             height="190px"
             width="auto"
@@ -27,7 +28,7 @@ function ClassicCocktail(props) {
           <p>garnish: {cocktail.garnish}</p>
           <p>method: {cocktail.method}</p>
           <p>glassware: {cocktail.glass}</p>
-
+          {/* <Link to={"/cocktails/"+cocktail._id}>delete</Link> */}
 
         </div>
       ))}

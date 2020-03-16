@@ -2,6 +2,7 @@ import React from 'react';
 
 function NonClassicCocktail(props) {
   return (
+    
     <div className="cocktail-list-container 
     non-classic-list 
     neumorphism-positive-template">
@@ -31,7 +32,5 @@ function NonClassicCocktail(props) {
     </div>
   )
 }
-
-
 
 export default NonClassicCocktail;

@@ -44,7 +44,9 @@ userImage: ${this.state.userImage}
 
   render() {
     return (
-      <div>
+      <form
+        onSubmit={this.handleUserFormSubmit}
+        className="user-form">
 
         <label>Choose Username
           <input
@@ -90,7 +92,13 @@ userImage: ${this.state.userImage}
           />
         </label>
 
-      </div>
+        <button
+          // className=""
+          type="submit"
+        >
+          Submit
+</button>
+      </form>
     )
   }
 }

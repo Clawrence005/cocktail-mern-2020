@@ -47,8 +47,8 @@ userImage: ${this.state.userImage}
       <form
         onSubmit={this.handleUserFormSubmit}
         className="user-form">
-
-        <label>Choose Username
+        <h1>Add Yourself as a User</h1>
+        <label>Choose Your Username
           <input
             className="neumorphism-negative-template"
             type="text"

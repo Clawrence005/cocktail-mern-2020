@@ -343,7 +343,9 @@ class App extends React.Component {
         {this.state.users.map((user) => (
           <User
             key={user._id}
+
             userName={user.userName}
+            id={user._id}
             email={user.email}
             bio={user.bio}
             userImage={user.imageName}

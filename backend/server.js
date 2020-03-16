@@ -178,7 +178,7 @@ userRoutes.route('/update/:id').put(function (req, res) {
     user.userImage = req.body.userImage;
 
     user.save().then(user => {
-      res.status(200).json(`user ${user._id} /${user.userName}updated`)
+      res.status(200).json(`user ${user._id} /${user.userName} updated`)
     })
   })
 });

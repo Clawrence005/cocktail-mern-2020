@@ -4,11 +4,10 @@ function User(props) {
   return (
     <div className="user-wrapper">
       <h2>{props.userName}</h2>
-      <p>{props._id}</p>
+      <p>{props.id}</p>
       <h4>{props.email}</h4>
-
       <p>{props.bio}</p>
-      <p>{props.userImage}</p>
+      <img src={props.userImage} alt={"user-" + props.userName}></img>
     </div>
   )
 }

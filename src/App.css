@@ -74,24 +74,29 @@ box-shadow:
 }
 
 .recipe-form{
-  border: 3px solid purple;
+  /* border: 3px solid purple; */
 } 
 .all-cocktail-list-container{
+  /* margin: 1em; */
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 1em;
 }
 .cocktail-list-container{
 /* width: 50%; */
 }
 .cocktail-list-grid{
-  border: 3px solid blue;
+  /* padding: 1em; */
+  /* border: 3px solid blue; */
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 1em;
 } 
 
 .cocktail-div{  
- border: 3px solid red;
- width: 333px;
+  /* padding: 1em; */
+  /* border: 3px solid red; */
+  width: 333px;
 }
 /* -3px -3px 7px 0 #ffffff73, inset
 3px 3px 5px 0 rgba(94,104,121, .288);

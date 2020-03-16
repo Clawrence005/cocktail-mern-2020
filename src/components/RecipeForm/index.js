@@ -5,17 +5,16 @@ class RecipeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cocktailName: 'goop',
-
-      creatorName: 'schmidtty',
+      cocktailName: '',
+      creatorName: '',
       cocktailImage: './assets/img/cocktail1.jpeg',
       isClassic: false,
       isShaken: false,
       isDoubleStrain: false,
-      details: 'dasdad',
-      ingredients: 'adasdsad,\n asdasdasd,\n asdasd',
-      garnish: 'lemon',
-      method: 'ascdad',
+      details: '',
+      ingredients: '',
+      garnish: '',
+      method: '',
       glass: 'coupe',
       chosenColor: 'blue',
     };
@@ -61,22 +60,26 @@ chosen color:    ${this.state.chosenColor}
     //send new object to route to back end
     axios.post('http://localhost:4000/cocktails/create', newCocktail).then(res => console.log(res.data));
 
-    this.setState({
-      cocktailName: '',
-      creatorName: '',
-      cocktailImage: './assets/img/cocktail1.jpeg',
-      isClassic: false,
-      isShaken: false,
-      isDoubleStrain: false,
 
-      details: '',
-      ingredients: '',
-      method: '',
+    let cocktails = { ...this.state.cocktails, newCocktail };
+    this.setState({ cocktails });
+    // this.setState({
+    //   cocktailName: '',
+    //   creatorName: '',
+    //   cocktailImage: './assets/img/cocktail1.jpeg',
+    //   isClassic: false,
+    //   isShaken: false,
+    //   isDoubleStrain: false,
 
-      garnish: '',
-      glass: '',
-      chosenColor: 'blue',
-    });
+    //   details: '',
+    //   ingredients: '',
+    //   method: '',
+
+    //   garnish: '',
+    //   glass: 'coupe',
+    //   chosenColor: 'blue',
+    // });
+
   }
 
   handleFormChange = (event) => {
@@ -86,6 +89,9 @@ chosen color:    ${this.state.chosenColor}
       [name]: value
     })
   }
+
+
+
   render() {
     return (
       <form

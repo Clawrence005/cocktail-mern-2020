@@ -3,9 +3,11 @@ import React from 'react';
 function ClassicCocktail(props) {
   return (
 
-    <div>
+    <div className="cocktail-list-container 
+    classic-list 
+    neumorphism-positive-template">
       <h2>Classic Cocktails</h2>
-
+      <div className="cocktail-list-grid"> 
       {props.list.map((cocktail) => (
         <div className="cocktail-div neumorphism-positive-template"
           key={cocktail._id}>
@@ -29,7 +31,8 @@ function ClassicCocktail(props) {
 
         </div>
       ))}
-    </div>
+    </div>       
+     </div>
   )
 }
 

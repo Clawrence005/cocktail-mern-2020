@@ -63,8 +63,8 @@ inset -4px -3px 7px 0 rgba(255,255,255, 1), inset
 
 .neumorphism-positive-template{
   border: none;
-  margin: 1em;
-  padding: 1em;
+  /* margin: 1em; */
+  /* padding: 1em; */
   background-color: #eeeeee;
 /* width: 333px; */
 border-radius: 15px;
@@ -72,8 +72,26 @@ box-shadow:
 -4px -3px 7px 0 rgba(255,255,255, 1),
 3px 3px 5px 0 rgba(94,104,121, .288);
 }
-.cocktail-div{ 
- 
+
+.recipe-form{
+  border: 3px solid purple;
+} 
+.all-cocktail-list-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.cocktail-list-container{
+/* width: 50%; */
+}
+.cocktail-list-grid{
+  border: 3px solid blue;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+} 
+
+.cocktail-div{  
+ border: 3px solid red;
+ width: 333px;
 }
 /* -3px -3px 7px 0 #ffffff73, inset
 3px 3px 5px 0 rgba(94,104,121, .288);

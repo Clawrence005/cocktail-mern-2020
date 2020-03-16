@@ -172,89 +172,116 @@ class App extends React.Component {
   //     this.setState(newState);
   //   }).catch(error => console.log(error))
   // }
-
-
-  // Api call here
-  componentDidMount() {
-    // axios.get('http://localhost:4000/cocktails/')
-    //   .then(response => {
-    //     this.setState({ cocktails: response.data });
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   })
-    let drinkParam = 'gimlet'
-    console.log('--component did mount');
-    let one = "https://jsonplaceholder.typicode.com/users"
-    let two = "http://dummy.restapiexample.com/api/v1/employees";
-    let three = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkParam}`;
-
-    const requestOne = axios.get(one)
-    const requestTwo = axios.get(two)
-    const requestThree = axios.get(three)
+  getCocktails() {
     axios.get('http://localhost:4000/cocktails/')
-      .then(response => {
-        this.setState({ cocktails: response.data });
+      .then(res => {
+        const cocktails = res.data;
+        this.setState({ cocktails });
+        console.log(res.data);
       })
-      .catch(function (error) {
-        console.log(error);
-      })
-    axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...responses) => {
-      const responseOne = responses[0].data.map(c => {
-        return {
-          id: c.id,
-          name: c.name,
-        }
-      })
-      const responseTwo = responses[1].data.data.map(c => {
-        return {
-          id: parseInt(c.id) + (10),
-          name: c.employee_name
-        }
-      })
-      // const responseThree = responses[2]
-      const responseThree = responses[2].data.drinks.map(c => {
-        return {
-          drinkName: c.strDrink,
-          glassware: c.strGlass,
-          instructions: c.strInstructions,
-          ingr1: c.strIngredient1,
-          ingr2: c.strIngredient2,
-          ingr3: c.strIngredient3,
-          ingr4: c.strIngredient4,
-          ingr5: c.strIngredient5,
-          ingr6: c.strIngredient6,
-          ingr7: c.strIngredient7,
-          ingr8: c.strIngredient8,
-          ingr9: c.strIngredient9,
-          ingr10: c.strIngredient10,
-
-          ingr1Measurement: c.strMeasure1,
-          ingr2Measurement: c.strMeasure2,
-          ingr3Measurement: c.strMeasure3,
-          ingr4Measurement: c.strMeasure4,
-          ingr5Measurement: c.strMeasure5,
-          ingr6Measurement: c.strMeasure6,
-          ingr7Measurement: c.strMeasure7,
-          ingr8Measurement: c.strMeasure8,
-          ingr9Measurement: c.strMeasure9,
-          ingr10Measurement: c.strMeasure10,
-        }
-      })
-
-      console.log(responseOne, "responseOne");
-      console.log(responseTwo, "responseTwo");
-      console.log(responseThree, "responseThree");
-
-      this.setState((state) => ({ contacts: state.contacts.concat(responseOne) }))
-      this.setState((state) => ({ contacts: state.contacts.concat(responseTwo) }))
-
-      // Object.assign({}, this.state, { contacts: responseOne + responseTwo });
-      console.log('State', this.state)
-    })).catch(error => {
-      console.log(error)
-    })
   }
+  componentDidMount() {
+    this.getCocktails();
+  }
+
+  handleFormDelete = (event) => {
+
+    event.preventDefault();
+    axios.delete('http://localhost:4000/cocktails/delete/{this.state._id}')
+      .then(res => console.log(res.data));
+  }
+
+  // fetchCocktailsDb() {
+  //   console.log(`fetched Cocktails:`)
+  //   axios.get('http://localhost:4000/cocktails/')
+  //     .then(response => {
+  //       this.setState({ cocktails: response.data });
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     })
+  // }
+  // Api call here
+  // componentDidMount() {
+  //   // axios.get('http://localhost:4000/cocktails/')
+  //   //   .then(response => {
+  //   //     this.setState({ cocktails: response.data });
+  //   //   })
+  //   //   .catch(function (error) {
+  //   //     console.log(error);
+  //   //   })
+  //   let drinkParam = 'gimlet'
+  //   console.log('--component did mount');
+  //   let one = "https://jsonplaceholder.typicode.com/users"
+  //   let two = "http://dummy.restapiexample.com/api/v1/employees";
+  //   let three = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkParam}`;
+
+  //   const requestOne = axios.get(one)
+  //   const requestTwo = axios.get(two)
+  //   const requestThree = axios.get(three)
+  //   axios.get('http://localhost:4000/cocktails/')
+  //     .then(response => {
+  //       this.setState({ cocktails: response.data });
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     })
+  //   axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...responses) => {
+  //     const responseOne = responses[0].data.map(c => {
+  //       return {
+  //         id: c.id,
+  //         name: c.name,
+  //       }
+  //     })
+  //     const responseTwo = responses[1].data.data.map(c => {
+  //       return {
+  //         id: parseInt(c.id) + (10),
+  //         name: c.employee_name
+  //       }
+  //     })
+  //     // const responseThree = responses[2]
+  //     const responseThree = responses[2].data.drinks.map(c => {
+  //       return {
+  //         drinkName: c.strDrink,
+  //         glassware: c.strGlass,
+  //         instructions: c.strInstructions,
+  //         ingr1: c.strIngredient1,
+  //         ingr2: c.strIngredient2,
+  //         ingr3: c.strIngredient3,
+  //         ingr4: c.strIngredient4,
+  //         ingr5: c.strIngredient5,
+  //         ingr6: c.strIngredient6,
+  //         ingr7: c.strIngredient7,
+  //         ingr8: c.strIngredient8,
+  //         ingr9: c.strIngredient9,
+  //         ingr10: c.strIngredient10,
+
+  //         ingr1Measurement: c.strMeasure1,
+  //         ingr2Measurement: c.strMeasure2,
+  //         ingr3Measurement: c.strMeasure3,
+  //         ingr4Measurement: c.strMeasure4,
+  //         ingr5Measurement: c.strMeasure5,
+  //         ingr6Measurement: c.strMeasure6,
+  //         ingr7Measurement: c.strMeasure7,
+  //         ingr8Measurement: c.strMeasure8,
+  //         ingr9Measurement: c.strMeasure9,
+  //         ingr10Measurement: c.strMeasure10,
+  //       }
+  //     })
+
+  //     console.log(responseOne, "responseOne");
+  //     console.log(responseTwo, "responseTwo");
+  //     console.log(responseThree, "responseThree");
+
+  //     this.setState((state) => ({ contacts: state.contacts.concat(responseOne) }))
+  //     this.setState((state) => ({ contacts: state.contacts.concat(responseTwo) }))
+
+  //     // Object.assign({}, this.state, { contacts: responseOne + responseTwo });
+  //     console.log('State', this.state)
+  //   })).catch(error => {
+  //     console.log(error)
+  //   })
+  // }
 
   // updateSearch = (event)=>{
   //   this.setState({search: event.target.value});
@@ -305,19 +332,21 @@ class App extends React.Component {
             onChange={this.updateSearch.bind(this)}
           /> */}
         <Search />
-        <ClassicCocktail
-          key={this.state.cocktails.cocktailId}
-          list={this.state.cocktails.filter(cocktail => cocktail.isClassic)
-          }
-        />
-        <NonClassicCocktail
-          key={this.state.cocktails.cocktailId}
-          list={this.state.cocktails.filter(cocktail => cocktail.isClassic !== true)}
-        />
+        <div className="all-cocktail-list-container" >
+          <ClassicCocktail
+            key={this.state.cocktails.cocktailId}
+            list={this.state.cocktails.filter(cocktail => cocktail.isClassic)
 
-        {this.state.contacts.map((contact, id) => (
-          <p key={contact.id}> {contact.name} id# {contact.id}</p>
-        ))}
+            }
+          />
+          <NonClassicCocktail
+            key={this.state.cocktails.cocktailId}
+            list={this.state.cocktails.filter(cocktail => cocktail.isClassic !== true)}
+          />
+        </div>
+        {/* {this.state.contacts.map((contact, id) => (
+          <p key={contact.id}> {contact.name} id# {contact.id}</p> 
+        ))}*/}
 
       </div>
 

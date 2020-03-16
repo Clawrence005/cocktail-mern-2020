@@ -2,9 +2,11 @@ import React from 'react';
 
 function NonClassicCocktail(props) {
   return (
-    <div>
-      <h2>NonClassicCocktail</h2>
-
+    <div className="cocktail-list-container 
+    non-classic-list 
+    neumorphism-positive-template">
+      <h2>Non-Classic Cocktail</h2>
+  <div className="cocktail-list-grid"> 
       {props.list.map((cocktail) => (
         <div className="cocktail-div neumorphism-positive-template"
           key={cocktail._id}>
@@ -24,8 +26,8 @@ function NonClassicCocktail(props) {
           <p>glassware: {cocktail.glass}</p>
 
         </div>
-      ))}
-
+      ))} 
+      </div>
     </div>
   )
 }

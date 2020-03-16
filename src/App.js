@@ -180,8 +180,17 @@ class App extends React.Component {
         console.log(res.data);
       })
   }
+
+  getUsers() {
+    axios.get('http://localhost:4000/users/').then(res => {
+      const users = res.data;
+      this.setState({ users });
+      console.log(res.data);
+    })
+  }
   componentDidMount() {
     this.getCocktails();
+    this.getUsers();
   }
 
   handleFormDelete = (event) => {

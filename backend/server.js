@@ -170,7 +170,14 @@ userRoutes.route('/create').post(function (req, res) {
 // userRoutes.route().put();
 
 // delete
-// userRoutes.route().delete();
+userRoutes.route('/delete/:id').delete(function (req, res) {
+  User.findOneAndRemove(req.params.id, function (err, user) {
+    if (!user)
+      res.status(404).send('user with this id not found');
+    else
+      res.status(200).send('user with this id deleted')
+  })
+});
 
 app.listen(PORT, function () {
   console.log("Server is running on Port: " + PORT);

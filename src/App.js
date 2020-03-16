@@ -5,6 +5,7 @@ import User from './components/Users'
 import ClassicCocktail from './components/ClassicCocktail';
 import NonClassicCocktail from './components/NonClassicCocktail';
 import RecipeForm from './components/RecipeForm';
+import UserForm from './components/UserForm';
 import Search from './components/Search';
 
 //responsible for sending the post to the backend
@@ -345,10 +346,11 @@ class App extends React.Component {
             userName={user.userName}
             email={user.email}
             bio={user.bio}
-            userImage={user.userImage}
+            userImage={user.imageName}
           />
         ))
         }
+        <UserForm />
         <RecipeForm />
 
         {/* <h2>search</h2>

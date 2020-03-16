@@ -156,7 +156,7 @@ userRoutes.route('/create').post(function (req, res) {
     userName: req.body.userName,
     email: req.body.email,
     bio: req.body.bio,
-    image: req.body.image,
+    imageName: req.body.image,
   });
   user.save(function (err) {
     if (err) {

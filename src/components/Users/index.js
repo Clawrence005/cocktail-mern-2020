@@ -8,7 +8,7 @@ function User(props) {
       <h4>{props.email}</h4>
 
       <p>{props.bio}</p>
-      <p>{props.image}</p>
+      <p>{props.userImage}</p>
     </div>
   )
 }

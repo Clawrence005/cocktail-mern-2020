@@ -345,7 +345,7 @@ class App extends React.Component {
             userName={user.userName}
             email={user.email}
             bio={user.bio}
-            image={user.image}
+            userImage={user.userImage}
           />
         ))
         }

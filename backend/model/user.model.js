@@ -9,7 +9,7 @@ let UserSchema = new Schema({
   userName: { type: String, required: true, unique: true, max: 30 },
   email: { type: String, required: true, unique: true, max: 60 },
   bio: { type: String, required: false, max: 600 },
-  image: { type: String, required: true, default: 'default image' },
+  userImage: { type: String, required: true, default: 'default image' },
 
 }, { timestamps: true });
 

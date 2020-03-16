@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
+import User from './components/Users'
 import ClassicCocktail from './components/ClassicCocktail';
 import NonClassicCocktail from './components/NonClassicCocktail';
 import RecipeForm from './components/RecipeForm';
@@ -21,6 +22,7 @@ class App extends React.Component {
       contacts: [],
       apiCocktails: [],
       cocktails: [],
+      users: [],
       // cocktails: [
       //   {
       //     cocktailName: 'martini',
@@ -337,7 +339,16 @@ class App extends React.Component {
 
     return (
       <div>
-
+        {this.state.users.map((user) => (
+          <User
+            key={user._id}
+            userName={user.userName}
+            email={user.email}
+            bio={user.bio}
+            image={user.image}
+          />
+        ))
+        }
         <RecipeForm />
 
         {/* <h2>search</h2>

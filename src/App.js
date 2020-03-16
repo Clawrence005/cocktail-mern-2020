@@ -177,7 +177,10 @@ class App extends React.Component {
       .then(res => {
         const cocktails = res.data;
         this.setState({ cocktails });
-        console.log(res.data);
+        console.log('cocktails :', res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
       })
   }
 
@@ -185,8 +188,11 @@ class App extends React.Component {
     axios.get('http://localhost:4000/users/').then(res => {
       const users = res.data;
       this.setState({ users });
-      console.log(res.data);
+      console.log('users :', res.data);
     })
+      .catch(function (error) {
+        console.log(error);
+      })
   }
   componentDidMount() {
     this.getCocktails();

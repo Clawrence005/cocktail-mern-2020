@@ -98,7 +98,7 @@ chosen color:    ${this.state.chosenColor}
         onSubmit={this.handleFormSubmit}
         className="recipe-form neumorphism-positive-template">
         <h1>Save Your Recipe </h1>
-        <h4>cocktailName: {this.state.cocktailName}</h4>
+        {/* <h4>cocktailName: {this.state.cocktailName}</h4>
         <h4>creatorName: {this.state.creatorName}</h4>
         <h4>cocktailImage: </h4>{this.state.cocktailImage}
         <h4>isClassic: {this.state.isClassic}</h4>
@@ -111,7 +111,7 @@ chosen color:    ${this.state.chosenColor}
         <h4>garnish: {this.state.garnish}</h4>
         <h4>glass: {this.state.glass}</h4>
         <h4>chosenColor: {this.state.chosenColor}</h4>
-        <br />
+        <br /> */}
 
         <h4>Cocktail Name</h4>
         <input

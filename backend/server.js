@@ -106,7 +106,7 @@ cocktailRoutes.route('/:id').get(function (req, res) {
 });
 
 //have to update all fields right now
-cocktailRoutes.route('/update/:id').post(function (req, res) {
+cocktailRoutes.route('/update/:id').put(function (req, res) {
   Cocktail.findById(req.params.id, function (err, cocktail) {
     if (!cocktail)
       res.status(404).send('cocktail with this id not found');
@@ -178,7 +178,7 @@ userRoutes.route('/update/:id').put(function (req, res) {
     user.userImage = req.body.userImage;
 
     user.save().then(user => {
-      res.status(200).json(`user ${user.userName} updated`)
+      res.status(200).json(`user ${user._id} /${user.userName}updated`)
     })
   })
 });

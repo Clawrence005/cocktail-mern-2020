@@ -49,6 +49,14 @@
 body{
   background-color: #eeeeee;
 }
+/* main container */
+ .main-container{
+ /* border: 3px solid blue;*/
+} 
+
+.cocktail-svg-maker{
+ border: 3px solid green;
+}
 .neumorphism-negative-template{
   border: none;
   padding: 1em;

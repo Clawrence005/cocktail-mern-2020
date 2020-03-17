@@ -339,7 +339,7 @@ class App extends React.Component {
 
 
     return (
-      <div>
+      <div className="main-container">
         {this.state.users.map((user) => (
           <User
             key={user._id}

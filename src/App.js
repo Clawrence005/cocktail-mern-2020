@@ -5,11 +5,13 @@ import User from './components/Users'
 import ClassicCocktail from './components/ClassicCocktail';
 import NonClassicCocktail from './components/NonClassicCocktail';
 import RecipeForm from './components/RecipeForm';
+import SvgForm from './components/SvgForm';
 import UserForm from './components/UserForm';
 import Search from './components/Search';
 
 //responsible for sending the post to the backend
 import axios from 'axios';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -340,6 +342,8 @@ class App extends React.Component {
 
     return (
       <div className="main-container">
+        <SvgForm />
+
         {this.state.users.map((user) => (
           <User
             key={user._id}

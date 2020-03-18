@@ -2,7 +2,7 @@ import React from 'react';
 
 function User(props) {
   return (
-    <div className="user-wrapper">
+    <div className="user">
       <h2>{props.userName}</h2>
       <p>{props.id}</p>
       <h4>{props.email}</h4>

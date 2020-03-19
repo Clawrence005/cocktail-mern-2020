@@ -29,6 +29,22 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const PORT = 4000;
+// const PORT = process.env.PORT || 3001;
+
+// // Define middleware here
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// // Serve up static assets (usually on heroku)
+// if (process.env.NODE_ENV === "production") {
+//     app.use(express.static("client/build"));
+// }
+// // Add routes, both API and view
+// app.use(routes);
+
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/cocktail_list_revised";
+// // Connect to the Mongo DB
+// mongoose.connect(MONGODB_URI);
+
 
 let Cocktail = require('./model/cocktail.model')
 let User = require('./model/user.model')

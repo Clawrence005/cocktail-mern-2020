@@ -8,10 +8,10 @@ import RecipeForm from './components/RecipeForm';
 import SvgForm from './components/SvgForm';
 import UserForm from './components/UserForm';
 import Search from './components/Search';
-
+// import ColorSwatch from './components/ColorSwatch';
 //responsible for sending the post to the backend
 import axios from 'axios';
-
+// "concurrently \"yarn run start-watch\" \"cd client && yarn start\""
 
 class App extends React.Component {
   constructor(props) {
@@ -26,6 +26,7 @@ class App extends React.Component {
       apiCocktails: [],
       cocktails: [],
       users: [],
+      colors: [],
       // cocktails: [
       //   {
       //     cocktailName: 'martini',
@@ -338,24 +339,24 @@ class App extends React.Component {
         <Route path="/edit/:id" exact component={EditCocktail} /> */}
 
 
-
-
     return (
       <div className="main-container">
+
         <SvgForm />
+        <div className="users-wrapper">
+          {this.state.users.map((user) => (
+            <User
+              key={user._id}
 
-        {this.state.users.map((user) => (
-          <User
-            key={user._id}
-
-            userName={user.userName}
-            id={user._id}
-            email={user.email}
-            bio={user.bio}
-            userImage={user.imageName}
-          />
-        ))
-        }
+              userName={user.userName}
+              id={user._id}
+              email={user.email}
+              bio={user.bio}
+              userImage={user.imageName}
+            />
+          ))
+          }
+        </div>
         <UserForm />
         <RecipeForm />
 

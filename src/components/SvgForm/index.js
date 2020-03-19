@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ColorSwatch from '../ColorSwatch';
 
 class SvgForm extends React.Component {
   constructor(props) {
@@ -16,11 +16,13 @@ class SvgForm extends React.Component {
   }
 
   render() {
+
     return (
+
       <div className="cocktail-svg-maker">
         <h1>Illustrate Your Recipe</h1>
 
-        <label>Svg Color
+        {/* <label>Svg Color
           <select
             value={this.state.svgColor}
             onChange={this.handleSvgFormChange}
@@ -29,11 +31,11 @@ class SvgForm extends React.Component {
             <option value="pink">PINK</option>
             <option value="lavender">LAVENDER</option>
             <option value="coral">CORAL</option>
-          </select>
-
-        </label>
-
-      </div>
+          </select> 
+      
+        </label>*/}
+        <ColorSwatch />
+      </div >
     )
   }
 }

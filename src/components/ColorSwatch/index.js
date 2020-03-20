@@ -6,6 +6,7 @@ import { SketchPicker } from 'react-color'
 import CollinsSVG from '../SwitchGlasses/CollinsSVG';
 import CoupeSVG from '../SwitchGlasses/CoupeSVG';
 import RocksSVG from '../SwitchGlasses/RocksSVG';
+import TikiSVG from '../SwitchGlasses/TikiSVG';
 
 class ColorSwatch extends React.Component {
   constructor(props) {
@@ -21,6 +22,8 @@ class ColorSwatch extends React.Component {
       },
     };
     this.handleSvgFormChange = this.handleSvgFormChange.bind(this)
+
+    // this.svgClick = this.svgClick.bind(this)
   }
 
 
@@ -30,7 +33,11 @@ class ColorSwatch extends React.Component {
     });
   }
 
+  svgClick = (e) => {
+    e.preventDefault();
 
+    console.log('clicked')
+  }
 
   handleClick = () => {
     this.setState({ displayColorPicker: !this.state.displayColorPicker })
@@ -97,7 +104,8 @@ class ColorSwatch extends React.Component {
 
       else if (this.state.glassChoice === "rocks") return <RocksSVG color={choosenColor} />;
 
-      else if (this.state.glassChoice === "tiki") return 'tiki'
+      else if (this.state.glassChoice === "tiki") return <TikiSVG color={choosenColor}
+      />
     }
 
 

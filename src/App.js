@@ -5,7 +5,7 @@ import User from './components/Users'
 import ClassicCocktail from './components/ClassicCocktail';
 import NonClassicCocktail from './components/NonClassicCocktail';
 import RecipeForm from './components/RecipeForm';
-import SvgForm from './components/SvgForm';
+import SvgForm from './components/SvgDesignFormContainer';
 import UserForm from './components/UserForm';
 import Search from './components/Search';
 // import ColorSwatch from './components/ColorSwatch';

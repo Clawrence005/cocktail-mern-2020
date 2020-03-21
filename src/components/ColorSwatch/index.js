@@ -20,6 +20,7 @@ class ColorSwatch extends React.Component {
         b: '19',
         a: '1',
       },
+
     };
     this.handleSvgFormChange = this.handleSvgFormChange.bind(this)
 
@@ -93,19 +94,23 @@ class ColorSwatch extends React.Component {
       },
     });
     // need to decide to either use above square or circle style or below variable for changing color
-    var choosenColor = `rgba(${this.state.color.r}, ${this.state.color.g}, ${this.state.color.b}, ${this.state.color.a})`;
+    var chosenColor = `rgba(${this.state.color.r}, ${this.state.color.g}, ${this.state.color.b}, ${this.state.color.a})`;
 
     const chooseGlass = () => {
       if (this.state.glassChoice === "coupe") {
-        return <CoupeSVG color={choosenColor} />
+        return <CoupeSVG color={chosenColor} />
       }
       else if (this.state.glassChoice === "collins")
-        return <CollinsSVG color={choosenColor} />;
+        return <CollinsSVG color={chosenColor} />;
 
-      else if (this.state.glassChoice === "rocks") return <RocksSVG color={choosenColor} />;
+      else if (this.state.glassChoice === "rocks") return <RocksSVG color={chosenColor} />;
 
-      else if (this.state.glassChoice === "tiki") return <TikiSVG color={choosenColor}
-      />
+      else if (this.state.glassChoice === "tiki") return (
+        <TikiSVG
+          color={chosenColor}
+          orangeVisibility={this.state.orangeVisibility}
+          lemonVisibility={this.state.lemonVisibility}
+        />)
     }
 
 

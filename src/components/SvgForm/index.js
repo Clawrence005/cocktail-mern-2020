@@ -1,5 +1,5 @@
 import React from 'react';
-import SvgCheckbox from '../SvgCheckbox';
+// import SvgCheckbox from '../SvgCheckbox';
 
 class SvgForm extends React.Component {
   constructor(props) {
@@ -54,9 +54,6 @@ class SvgForm extends React.Component {
 
   };
 
-
-
-
   // handleToggleChange = (event) => {
   //   console.log('clicked')
   //   const { name, isVisible } = event.target
@@ -78,11 +75,10 @@ class SvgForm extends React.Component {
     const { name, value, type, checked } = event.target
     // this.setState({ [event.target.name]: event.target.value });
     type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({
-      [`${name}isVisible`]: value
+      [name]: value
+      // [`${name}isVisible`]: value
     })
   }
-
-
 
   handleSvgSubmit = () => {
 

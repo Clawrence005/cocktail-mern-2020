@@ -3,7 +3,9 @@ import React from 'react';
 
 const RocksSVG = (props) => {
   return (<svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 0 612 792"><defs><linearGradient className="linear-gradient" x1="358.69" y1="337.5" x2="557.63" y2="100.41"
-    width="300px" height="400px" gradientTransform="matrix(-0.95, -0.32, -0.32, 0.95, 786.03, 168.56)" gradientUnits="userSpaceOnUse"><stop offset="0.07" stopColor="#fff" stopOpacity="0.5" /><stop offset="0.08" stopColor="#fdfefc" stopOpacity="0.51" /><stop offset="0.7" stopColor="#acd674" stopOpacity="0.86" /><stop offset="1" stopColor="#8dc63f" /></linearGradient></defs>
+    width="300px" height="400px" gradientTransform="matrix(-0.95, -0.32, -0.32, 0.95, 786.03, 168.56)" gradientUnits="userSpaceOnUse"><stop offset="0.07" stopColor="#fff" stopOpacity="0.5" /><stop offset="0.08" stopColor="#fdfefc" stopOpacity="0.51" /><stop offset="0.7" stopColor="#acd674" stopOpacity="0.86" /><stop offset="1" stopColor="#8dc63f" />
+    <title>Rocks Glass</title>
+    <desc>A customizable image of a cocktail.</desc></linearGradient></defs>
 
     <g className="rocks-glass" >
       <polygon points="68.03 319.86 542.03 319.86 510.87 658.86 98.03 658.86 68.03 319.86" fill="#8aceec" opacity="0.4" />

@@ -51,7 +51,7 @@ class SvgForm extends React.Component {
     }
 
     this.handleSvgFormChange = this.handleSvgFormChange.bind(this);
-
+    this.toggleLemon = this.toggleLemon.bind(this);
   };
 
   // handleToggleChange = (event) => {
@@ -62,6 +62,10 @@ class SvgForm extends React.Component {
   //     [name]: !isVisible
   //   });
   // }
+
+  toggleLemon = () => {
+    console.log("toggle lemon");
+  };
 
   // toggleSwitch = () => {
   //   this.setState((state) => {
@@ -78,6 +82,7 @@ class SvgForm extends React.Component {
       [name]: value
       // [`${name}isVisible`]: value
     })
+
   }
 
   handleSvgSubmit = () => {

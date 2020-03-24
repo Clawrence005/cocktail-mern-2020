@@ -360,13 +360,6 @@ class App extends React.Component {
         <UserForm />
         <RecipeForm />
 
-        {/* <h2>search</h2>
-          <input
-            className="neumorphism-negative-template"
-            type="text"
-            value={this.state.search}
-            onChange={this.updateSearch.bind(this)}
-          /> */}
         <Search />
         <div className="all-cocktail-list-container" >
           <ClassicCocktail

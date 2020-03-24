@@ -20,6 +20,16 @@ class ColorSwatch extends React.Component {
         b: '19',
         a: '1',
       },
+      largeIceCubeVisibility: 'hidden',
+      smallIceCubesCVisibiliy: 'hidden',
+
+      limeVisibility: 'hidden',
+      lemonVisibility: 'hidden',
+      orangeVisibility: 'hidden',
+      mintVisibility: 'hidden',
+      cherryVisibility: 'hidden',
+      cuVisibility: 'hidden',
+
 
     };
     this.handleSvgFormChange = this.handleSvgFormChange.bind(this)
@@ -108,8 +118,8 @@ class ColorSwatch extends React.Component {
       else if (this.state.glassChoice === "tiki") return (
         <TikiSVG
           color={chosenColor}
-          orangeVisibility={this.state.orangeVisibility}
-          lemonVisibility={this.state.lemonVisibility}
+        // orangeVisibility={this.state.orangeVisibility}
+        // lemonVisibility={this.state.lemonVisibility}
         />)
     }
 

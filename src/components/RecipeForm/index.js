@@ -38,7 +38,7 @@ You are submitting:
 cocktailName:   ${this.state.cocktailName} 
 isClassic:       ${this.state.isClassic}
 creatorName:     ${this.state.creatorName}
-image: ${this.state.cocktailImage}
+image:          ${this.state.cocktailImage}
 isShaken:       ${this.state.isShaken}
 isDoubleStrain: ${this.state.isDoubleStrain}
 details:        ${this.state.details}
@@ -70,22 +70,6 @@ chosen color:    ${this.state.chosenColor}
 
     let cocktails = { ...this.state.cocktails, newCocktail };
     this.setState({ cocktails });
-    // this.setState({
-    //   cocktailName: '',
-    //   creatorName: '',
-    //   cocktailImage: './assets/img/cocktail1.jpeg',
-    //   isClassic: false,
-    //   isShaken: false,
-    //   isDoubleStrain: false,
-
-    //   details: '',
-    //   ingredients: '',
-    //   method: '',
-
-    //   garnish: '',
-    //   glass: 'coupe',
-    //   chosenColor: 'blue',
-    // });
   }
 
 

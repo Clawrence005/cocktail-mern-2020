@@ -6,42 +6,48 @@ class SvgFormContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // isGarnishVisible: false,
+      ice: 'no_ice',
 
-      // largeIceCubeVisibility: false,
-      // smallIceCubesCVisibiliy: false,
+      hasLime: false,
+      hasLemon: false,
+      hasPeel: false,
+      hasOrange: false,
+      hasMint: false,
+      hasCherry: false,
+      hasCuke: false,
+      hasOlive: false,
+      hasSaltRim: false,
+      hasSugarRim: false,
 
-      // limeVisibility: false,
-      // lemonVisibility: false,
-      // orangeVisibility: false,
-      // mintVisibility: false,
-      // cherryVisibility: false,
-      // cukeVisibility: false,
+      washline: "highLiquid",
+
+      absintheRinse: false,
+      scotchRinse: false,
     }
     this.toggleButton = this.toggleButton.bind(this);
+
+    this.handleSvgFormChange = this.handleSvgFormChange.bind(this);
+    this.toggleLemon = this.toggleLemon.bind(this);
   }
 
-  // toggleButton = () => {
-  //   console.log('clicked')
-  //   this.setState((currentState) => ({
-  //     isGarnishVisible: !currentState.isGarnishVisible,
-  //   }));
-  // }
+  handleSvgFormChange = (event) => {
+    const { name, value, type, checked } = event.target
+    // this.setState({ [event.target.name]: event.target.value });
+    type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({
+      [name]: value
+      // [`${name}isVisible`]: value
+    })
 
-  toggleButton = (event) => {
-    console.log('clicked')
-
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
   }
+
+
 
   render() {
-    const { } = this.props
+
     return (
       <div className="cocktail-svg-maker">
         <h1>Illustrate Your Recipe</h1>
-        <SvgForm />
+
         <ColorSwatch />
       </div >
     )

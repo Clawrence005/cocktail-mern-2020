@@ -1,5 +1,6 @@
 import React from 'react';
 // import SvgCheckbox from '../SvgCheckbox';
+import SvgChooseGlass from '../SvgChooseGlass';
 
 class SvgForm extends React.Component {
   constructor(props) {
@@ -50,8 +51,8 @@ class SvgForm extends React.Component {
       // ]
     }
 
-    this.handleSvgFormChange = this.handleSvgFormChange.bind(this);
-    this.toggleLemon = this.toggleLemon.bind(this);
+    // this.handleSvgFormChange = this.handleSvgFormChange.bind(this);
+    // this.toggleLemon = this.toggleLemon.bind(this);
   };
 
   // handleToggleChange = (event) => {
@@ -63,9 +64,7 @@ class SvgForm extends React.Component {
   //   });
   // }
 
-  toggleLemon = () => {
-    console.log("toggle lemon");
-  };
+
 
   // toggleSwitch = () => {
   //   this.setState((state) => {
@@ -75,15 +74,15 @@ class SvgForm extends React.Component {
   //   })
   // };
 
-  handleSvgFormChange = (event) => {
-    const { name, value, type, checked } = event.target
-    // this.setState({ [event.target.name]: event.target.value });
-    type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({
-      [name]: value
-      // [`${name}isVisible`]: value
-    })
+  // handleSvgFormChange = (event) => {
+  //   const { name, value, type, checked } = event.target
+  //   // this.setState({ [event.target.name]: event.target.value });
+  //   type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({
+  //     [name]: value
+  //     // [`${name}isVisible`]: value
+  //   })
 
-  }
+  // }
 
   handleSvgSubmit = () => {
 
@@ -94,6 +93,7 @@ class SvgForm extends React.Component {
     return (
 
       <div className="SvgForm" onSumbit={this.handle}>
+        <SvgChooseGlass />
         <h4>SvgForm</h4>
         {/* {this.state.garnishes.map((garnish) =>
           (<SvgCheckbox
@@ -119,7 +119,14 @@ class SvgForm extends React.Component {
           onChange={this.handleSvgFormChange}
           value={this.state.hasSmallIce}
         />
-        <label>lime</label>
+        <label>hasLime</label>
+        <input
+          type="checkbox"
+          name="hasLime"
+          onChange={this.handleSvgFormChange}
+          value={this.state.hasLime}
+        />
+        <label>hasLemon</label>
         <input
           type="checkbox"
           name="hasLime"

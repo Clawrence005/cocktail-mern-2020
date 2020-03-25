@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 
 import CollinsSVG from '../SwitchGlasses/CollinsSVG';
 import CoupeSVG from '../SwitchGlasses/CoupeSVG';
@@ -49,7 +50,8 @@ class SvgChooseGlass extends React.Component {
 
 
     return (
-      <div>
+      <div className="choose-glass">
+        <h1> inside Choose Glass</h1>
         {chooseGlass()}
         <label>Svg Glass Choice
             <select

@@ -1,5 +1,7 @@
 
 import React from 'react'
+import './styles.css';
+
 import reactCSS from 'reactcss'
 import { SketchPicker } from 'react-color'
 
@@ -20,15 +22,6 @@ class ColorSwatch extends React.Component {
         b: '19',
         a: '1',
       },
-      largeIceCubeVisibility: 'hidden',
-      smallIceCubesCVisibiliy: 'hidden',
-
-      limeVisibility: 'hidden',
-      lemonVisibility: 'hidden',
-      orangeVisibility: 'hidden',
-      mintVisibility: 'hidden',
-      cherryVisibility: 'hidden',
-      cuVisibility: 'hidden',
 
 
     };
@@ -106,14 +99,29 @@ class ColorSwatch extends React.Component {
     // need to decide to either use above square or circle style or below variable for changing color
     var chosenColor = `rgba(${this.state.color.r}, ${this.state.color.g}, ${this.state.color.b}, ${this.state.color.a})`;
 
+    const { hasLime, hasLemon, hasOrange, hasPeel, HasMint, hasCuke } = this.props;
     const chooseGlass = () => {
       if (this.state.glassChoice === "coupe") {
-        return <CoupeSVG color={chosenColor} />
+        return <CoupeSVG color={chosenColor}
+
+
+        />
       }
       else if (this.state.glassChoice === "collins")
         return <CollinsSVG color={chosenColor} />;
 
-      else if (this.state.glassChoice === "rocks") return <RocksSVG color={chosenColor} />;
+      else if (this.state.glassChoice === "rocks") return <RocksSVG
+        color={chosenColor}
+        hasLime={this.props.hasLime}
+        hasLemon={this.props.hasLemon}
+        hasOrange={this.props.hasOrange}
+        hasPeel={this.props.hasPeel}
+        hasMint={this.props.hasMint}
+        hasCuke={this.props.hasCuke}
+        hasCherry={this.props.hasCherry}
+
+
+      />
 
       else if (this.state.glassChoice === "tiki") return (
         <TikiSVG
@@ -126,7 +134,9 @@ class ColorSwatch extends React.Component {
 
     return (
 
-      <div >
+      <div className="color-swatch" >
+        <h1>ColorSwatch</h1>
+
         {chooseGlass()}
 
         <label>Svg Glass Choice

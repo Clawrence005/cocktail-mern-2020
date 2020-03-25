@@ -24,10 +24,9 @@ class SvgFormContainer extends React.Component {
       absintheRinse: false,
       scotchRinse: false,
     }
-    this.toggleButton = this.toggleButton.bind(this);
 
     this.handleSvgFormChange = this.handleSvgFormChange.bind(this);
-    this.toggleLemon = this.toggleLemon.bind(this);
+
   }
 
   handleSvgFormChange = (event) => {
@@ -35,7 +34,6 @@ class SvgFormContainer extends React.Component {
     // this.setState({ [event.target.name]: event.target.value });
     type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({
       [name]: value
-      // [`${name}isVisible`]: value
     })
 
   }
@@ -47,7 +45,7 @@ class SvgFormContainer extends React.Component {
     return (
       <div className="cocktail-svg-maker">
         <h1>Illustrate Your Recipe</h1>
-
+        <SvgForm />
         <ColorSwatch />
       </div >
     )

@@ -14,7 +14,7 @@ class SvgFormContainer extends React.Component {
       //   b: '19',
       //   a: '1',
       // },
-      ice: 'no_ice',
+      ice: "noIce",
 
       hasLime: false,
       hasLemon: false,
@@ -74,27 +74,30 @@ class SvgFormContainer extends React.Component {
           <label>No Ice</label>
           <input
             type="radio"
-            name="no_ice"
+            name="ice"
+            checked={this.state.ice === "noIce"}
             onChange={this.handleSvgFormChange}
-            value={this.state.ice === 'no_ice'}
+            value="noIce"
           />
           <br />
 
           <label>Small Ice</label>
           <input
             type="radio"
-            name="small_ice"
+            name="ice"
+            checked={this.state.ice === "smallIce"}
             onChange={this.handleSvgFormChange}
-            value={this.state.ice === 'small_ice'}
+            value="smallIce"
           />
           <br />
 
           <label>Large Ice</label>
           <input
             type="radio"
-            name="large_ice"
+            name="ice"
+            checked={this.state.ice === "largeIce"}
             onChange={this.handleSvgFormChange}
-            value={this.state.ice === 'large_ice'}
+            value="largeIce"
           />
           <br />
 
@@ -154,9 +157,8 @@ class SvgFormContainer extends React.Component {
             onChange={this.handleSvgFormChange}
             value={this.state.hasCuke}
           />
-
           <br />
-          <label>Olive</label>
+          {/* <label>Olive</label>
           <input
             type="checkbox"
             name="olive"
@@ -179,24 +181,24 @@ class SvgFormContainer extends React.Component {
             onChange={this.handleSvgFormChange}
             value={this.state.sugar}
           />
-          <br />
+          <br /> */}
 
           <label>Liquid Low</label>
           <input
             type="radio"
             name="washline"
-            checked={this.state.washline === "liquidLow"}
+            checked={this.state.washline === "lowLiquid"}
             onChange={this.handleSvgFormChange}
-            value="liquidLow"
+            value="lowLiquid"
           />
           <br />
           <label>Liquid Mid</label>
           <input
             type="radio"
             name="washline"
+            checked={this.state.washline === "midLiquid"}
             onChange={this.handleSvgFormChange}
-            checked={this.state.washline === "liquidMid"}
-            value="liquidMid"
+            value="midLiquid"
           />
           <br />
 
@@ -204,13 +206,12 @@ class SvgFormContainer extends React.Component {
           <input
             type="radio"
             name="washline"
-            checked={this.state.washline === "liquidHigh"}
+            checked={this.state.washline === "highLiquid"}
             onChange={this.handleSvgFormChange}
-            value="liquidHigh"
-
+            value="highLiquid"
           />
           <br />
-          <label>Absinthe Rinse</label>
+          {/* <label>Absinthe Rinse</label>
           <input
             type="checkbox"
             name="absintheRinse"
@@ -225,9 +226,11 @@ class SvgFormContainer extends React.Component {
             onChange={this.handleSvgFormChange}
             value={this.state.scotchRinse}
           />
-          <br />
+          <br /> */}
 
           <ColorSwatch
+            ice={this.state.ice}
+
             hasLime={this.state.hasLime}
             hasLemon={this.state.hasLemon}
             hasOrange={this.state.hasOrange}
@@ -235,6 +238,8 @@ class SvgFormContainer extends React.Component {
             hasMint={this.state.hasMint}
             hasCuke={this.state.hasCuke}
             hasCherry={this.state.hasCherry}
+
+            washline={this.state.washline}
           />
         </div ></div>
     )

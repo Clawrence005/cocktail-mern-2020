@@ -112,6 +112,8 @@ class ColorSwatch extends React.Component {
 
       else if (this.state.glassChoice === "rocks") return <RocksSVG
         color={chosenColor}
+        ice={this.props.ice}
+
         hasLime={this.props.hasLime}
         hasLemon={this.props.hasLemon}
         hasOrange={this.props.hasOrange}
@@ -120,7 +122,7 @@ class ColorSwatch extends React.Component {
         hasCuke={this.props.hasCuke}
         hasCherry={this.props.hasCherry}
 
-
+        washline={this.props.washline}
       />
 
       else if (this.state.glassChoice === "tiki") return (

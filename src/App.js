@@ -5,7 +5,7 @@ import User from './components/Users'
 import ClassicCocktail from './components/ClassicCocktail';
 import NonClassicCocktail from './components/NonClassicCocktail';
 import RecipeForm from './components/RecipeForm';
-import SvgForm from './components/SvgFormContainer';
+import SvgFormContainer from './components/SvgFormContainer';
 import UserForm from './components/UserForm';
 import Search from './components/Search';
 // import ColorSwatch from './components/ColorSwatch';
@@ -342,7 +342,7 @@ class App extends React.Component {
     return (
       <div className="main-container">
 
-        <SvgForm />
+        <SvgFormContainer />
         <div className="users-wrapper">
           {this.state.users.map((user) => (
             <User

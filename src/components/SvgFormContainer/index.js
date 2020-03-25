@@ -2,18 +2,13 @@ import React from 'react';
 import ColorSwatch from '../ColorSwatch';
 import SvgChooseGlass from '../SvgChooseGlass';
 // import SvgForm from '../SvgForm';
-import RocksSVG from '../SwitchGlasses/RocksSVG';
+// import RocksSVG from '../SwitchGlasses/RocksSVG';
 
 class SvgFormContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // color: {
-      //   r: '241',
-      //   g: '112',
-      //   b: '19',
-      //   a: '1',
-      // },
+
       ice: "noIce",
 
       hasLime: false,
@@ -54,21 +49,8 @@ class SvgFormContainer extends React.Component {
       <div className="cocktail-svg-maker">
         <h1>Illustrate Your Recipe</h1>
 
-
-        {/* <RocksSVG
-          // color={this.state.color}
-
-          hasPeel={this.state.hasPeel}
-          hasMint={this.state.hasMint}
-          hasLemon={this.state.hasLemon}
-          hasLime={this.state.hasLime}
-          hasOrange={this.state.hasOrange}
-          hasCuke={this.state.hasCuke}
-          hasCherry={this.state.hasCherry}
-
-        /> */}
         <div className="SvgForm" >
-          {/* <SvgChooseGlass /> */}
+
           <h4>SvgForm</h4>
 
           <label>No Ice</label>
@@ -80,7 +62,6 @@ class SvgFormContainer extends React.Component {
             value="noIce"
           />
           <br />
-
           <label>Small Ice</label>
           <input
             type="radio"
@@ -90,7 +71,6 @@ class SvgFormContainer extends React.Component {
             value="smallIce"
           />
           <br />
-
           <label>Large Ice</label>
           <input
             type="radio"
@@ -100,7 +80,6 @@ class SvgFormContainer extends React.Component {
             value="largeIce"
           />
           <br />
-
           <label>Lime</label>
           <input
             type="checkbox"

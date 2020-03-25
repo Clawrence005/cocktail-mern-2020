@@ -99,7 +99,7 @@ class ColorSwatch extends React.Component {
     // need to decide to either use above square or circle style or below variable for changing color
     var chosenColor = `rgba(${this.state.color.r}, ${this.state.color.g}, ${this.state.color.b}, ${this.state.color.a})`;
 
-    const { hasLime, hasLemon, hasOrange, hasPeel, HasMint, hasCuke } = this.props;
+    const { hasLime, hasLemon, hasOrange, hasPeel, HasMint, hasCuke, washline } = this.props;
     const chooseGlass = () => {
       if (this.state.glassChoice === "coupe") {
         return <CoupeSVG color={chosenColor}
@@ -108,7 +108,20 @@ class ColorSwatch extends React.Component {
         />
       }
       else if (this.state.glassChoice === "collins")
-        return <CollinsSVG color={chosenColor} />;
+        return <CollinsSVG color={chosenColor}
+          ice={this.props.ice}
+
+          hasLime={this.props.hasLime}
+          hasLemon={this.props.hasLemon}
+          hasOrange={this.props.hasOrange}
+          hasPeel={this.props.hasPeel}
+          hasMint={this.props.hasMint}
+          hasCuke={this.props.hasCuke}
+          hasCherry={this.props.hasCherry}
+
+          washline={this.props.washline}
+
+        />;
 
       else if (this.state.glassChoice === "rocks") return <RocksSVG
         color={chosenColor}

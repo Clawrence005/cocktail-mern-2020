@@ -1,4 +1,5 @@
 import React from 'react';
+import Cocktail from '../../components/Cocktail';
 
 function NonClassicCocktail(props) {
   return (
@@ -6,26 +7,23 @@ function NonClassicCocktail(props) {
     <div className="cocktail-list-container 
     non-classic-list">
       <h2>Non-Classic Cocktail</h2>
-  <div className="cocktail-list-grid"> 
-      {props.list.map((cocktail) => (
-        <div className="cocktail-div"
-          key={cocktail._id}>
-          <h3>{cocktail.cocktailName}</h3>
-          <img
-            src={cocktail.cocktailImage}
-            alt={"image-" + cocktail.cocktailName}
-            height="190px"
-            width="auto"
+      <div className="cocktail-list-grid">
+        {/* {props.children} */}
+        {props.list.map((cocktail) => (
+          <Cocktail
+            // {...props}
+            cocktailName={cocktail.cocktailName} creatorName={cocktail.creatorName}
+            _id={cocktail._id}
+
+
+            cocktailImage={cocktail.cocktailImage}
+            isShaken={cocktail.isShaken}
+            garnish={cocktail.garnish}
+            ingredients={cocktail.ingredients}
+            method={cocktail.method}
+            glass={cocktail.glass}
           />
-          <li>  id: {cocktail._id}</li>
-          <strong>Ingredients</strong>
-          {cocktail.ingredients.map((subItem, index) =>
-            <li key={index}>{subItem}</li>)}
-          <p>garnish: {cocktail.garnish}</p>
-          <p>method: {cocktail.method}</p>
-          <p>glassware: {cocktail.glass}</p>
-        </div>
-      ))} 
+        ))}
       </div>
     </div>
   )

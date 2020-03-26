@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import User from './components/Users'
-import ClassicCocktail from './components/ClassicCocktail';
-import NonClassicCocktail from './components/NonClassicCocktail';
+import ClassicCocktail from './containers/ClassicCocktail';
+import NonClassicCocktail from './containers/NonClassicCocktail';
 import RecipeForm from './components/RecipeForm';
 import SvgFormContainer from './components/SvgFormContainer';
 import UserForm from './components/UserForm';
@@ -17,16 +17,16 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      search: '',
-      selectedValue: "none yet",
-      selectedOption: "option1",
+      // search: '',
+      // selectedValue: "none yet",
+      // selectedOption: "option1",
       // search:'mold fashioned',
       cocktailInput: '',
       contacts: [],
       apiCocktails: [],
       cocktails: [],
       users: [],
-      colors: [],
+      // colors: [],
       // cocktails: [
       //   {
       //     cocktailName: 'martini',
@@ -365,6 +365,7 @@ class App extends React.Component {
         <Search />
         <div className="all-cocktail-list-container" >
           <ClassicCocktail
+            // name={this.state.cocktails.cocktailName}
             key={this.state.cocktails.cocktailId}
             list={this.state.cocktails.filter(cocktail => cocktail.isClassic)}
           />

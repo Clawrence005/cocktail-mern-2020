@@ -4,12 +4,11 @@ function NonClassicCocktail(props) {
   return (
     
     <div className="cocktail-list-container 
-    non-classic-list 
-">
+    non-classic-list">
       <h2>Non-Classic Cocktail</h2>
   <div className="cocktail-list-grid"> 
       {props.list.map((cocktail) => (
-        <div className="cocktail-div "
+        <div className="cocktail-div"
           key={cocktail._id}>
           <h3>{cocktail.cocktailName}</h3>
           <img
@@ -25,7 +24,6 @@ function NonClassicCocktail(props) {
           <p>garnish: {cocktail.garnish}</p>
           <p>method: {cocktail.method}</p>
           <p>glassware: {cocktail.glass}</p>
-
         </div>
       ))} 
       </div>

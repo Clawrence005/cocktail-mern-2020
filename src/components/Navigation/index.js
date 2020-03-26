@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Navigation {
+function Navigation() {
   return (
     <div className="nav">
       <p>gghjhjhgh</p>

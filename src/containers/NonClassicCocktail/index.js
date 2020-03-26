@@ -11,10 +11,9 @@ function NonClassicCocktail(props) {
         {/* {props.children} */}
         {props.list.map((cocktail) => (
           <Cocktail
-            // {...props}
+            key={cocktail._id}
             cocktailName={cocktail.cocktailName} creatorName={cocktail.creatorName}
             _id={cocktail._id}
-
 
             cocktailImage={cocktail.cocktailImage}
             isShaken={cocktail.isShaken}

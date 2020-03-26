@@ -10,10 +10,14 @@ function ClassicCocktail(props) {
       <div className="cocktail-list-grid">
         {/* {props.children} */}
         {props.list.map((cocktail) => (
-          <Cocktail {...props}
-            cocktailName={cocktail.cocktailName}
+          <Cocktail
+            // {...props}
+            cocktailName={cocktail.cocktailName} creatorName={cocktail.creatorName}
             _id={cocktail._id}
+
+
             cocktailImage={cocktail.cocktailImage}
+            isShaken={cocktail.isShaken}
             garnish={cocktail.garnish}
             ingredients={cocktail.ingredients}
             method={cocktail.method}

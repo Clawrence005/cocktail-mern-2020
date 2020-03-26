@@ -343,6 +343,7 @@ class App extends React.Component {
       <div className="main-container">
 
         <SvgFormContainer />
+
         <div className="users-wrapper">
           {this.state.users.map((user) => (
             <User
@@ -358,15 +359,14 @@ class App extends React.Component {
           }
         </div>
         <UserForm />
+
         <RecipeForm />
 
         <Search />
         <div className="all-cocktail-list-container" >
           <ClassicCocktail
             key={this.state.cocktails.cocktailId}
-            list={this.state.cocktails.filter(cocktail => cocktail.isClassic)
-
-            }
+            list={this.state.cocktails.filter(cocktail => cocktail.isClassic)}
           />
           <NonClassicCocktail
             key={this.state.cocktails.cocktailId}

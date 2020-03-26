@@ -5,11 +5,11 @@ function NonClassicCocktail(props) {
     
     <div className="cocktail-list-container 
     non-classic-list 
-    neumorphism-positive-template">
+">
       <h2>Non-Classic Cocktail</h2>
   <div className="cocktail-list-grid"> 
       {props.list.map((cocktail) => (
-        <div className="cocktail-div neumorphism-positive-template"
+        <div className="cocktail-div "
           key={cocktail._id}>
           <h3>{cocktail.cocktailName}</h3>
           <img

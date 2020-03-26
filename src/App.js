@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
-import User from './components/Users'
+// import User from './components/Users';
+import UserContainer from './containers/UserContainer';
 import ClassicCocktail from './containers/ClassicCocktail';
 import NonClassicCocktail from './containers/NonClassicCocktail';
 import RecipeForm from './components/RecipeForm';
@@ -344,7 +345,7 @@ class App extends React.Component {
 
         <SvgFormContainer />
 
-        <div className="users-wrapper">
+        {/* <div className="users-wrapper">
           {this.state.users.map((user) => (
             <User
               key={user._id}
@@ -357,7 +358,16 @@ class App extends React.Component {
             />
           ))
           }
-        </div>
+        </div> */}
+
+        <UserContainer
+          key={this.state.users._id}
+          list={this.state.users}
+        // userName={this.state.userName}
+        // id={this.state.id}
+        // email={this.state.email}
+        // bio={this.state.bio} userImage={this.state.userImage}
+        />
         <UserForm />
 
         <RecipeForm />

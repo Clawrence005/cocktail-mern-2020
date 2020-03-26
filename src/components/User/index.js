@@ -9,7 +9,7 @@ function User(props) {
         alt={"user-" + props.userName}
         className="user-pic" />
       <div className="user-pic-name">
-        <h2>{props.userName}</h2>
+        <h3>{props.userName}</h3>
 
         <h4>{props.email}</h4>
         <p>{props.id}</p>

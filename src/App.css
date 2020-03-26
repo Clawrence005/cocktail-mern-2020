@@ -83,7 +83,7 @@ box-shadow:
 .users-wrapper{
 border: 3px solid purple;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .recipe-form{
@@ -95,22 +95,25 @@ border: 3px solid purple;
 }
 .user{
     border: 3px solid pink;
-    /* padding: 1rem; */
+    margin: .5rem;
     /* display: flex; */
+    display: inline-block;
 }
 .user-pic-name{
   border: 3px solid green;
   display: inline-block;
   padding: .5rem;
-
+  position: relative;
+  left:100px;
 }
 
 .user-pic{
-  width: 75px; 
-  height: 75px; 
+  width: 70px; 
+  height: 70px; 
   object-fit: cover;
   border-radius: 50%; 
-  margin: .5rem;
+  margin: 1rem;
+  position: absolute;
 }
 .all-cocktail-list-container{
   /* margin: 1em; */

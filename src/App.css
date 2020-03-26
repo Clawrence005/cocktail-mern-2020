@@ -47,7 +47,7 @@
 
 
 body{
-  background-color: #eeeeee;
+  /* background-color: #eeeeee; */
 }
 /* main container */
  .main-container{
@@ -59,7 +59,7 @@ body{
 .cocktail-svg-maker{
  border: 3px solid green;
 }
-.neumorphism-negative-template{
+/* .neumorphism-negative-template{
   border: none;
   padding: 1em;
   background-color: #eeeeee;
@@ -69,24 +69,21 @@ body{
 inset -4px -3px 7px 0 rgba(255,255,255, 1),
 inset 3px 3px 5px 0 rgba(94,104,121, .288);
 
-}
+} */
 
-.neumorphism-positive-template{
+/* .neumorphism-positive-template{
 border: none;
-/* margin: 1em; */
-/* padding: 1em; */
 background-color: #eeeeee;
-/* width: 333px; */
 border-radius: 15px;
 box-shadow: 
 -4px -3px 7px 0 rgba(255,255,255, 1),
 3px 3px 5px 0 rgba(94,104,121, .288);
-}
+} */
 
 .users-wrapper{
 border: 3px solid purple;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .recipe-form{
@@ -95,6 +92,24 @@ border: 3px solid purple;
 
 .user-form{
   border: 3px solid red;
+}
+.user{
+    border: 3px solid pink;
+    padding: 1rem;
+    /* display: flex; */
+}
+.user-pic-name{
+  border: 3px solid green;
+  display: flex;
+  align-items: center;
+}
+
+.user-pic{
+  width: 75px; 
+  height: 75px; 
+  object-fit: cover;
+   border-radius: 50%; 
+   margin: 1rem;
 }
 .all-cocktail-list-container{
   /* margin: 1em; */

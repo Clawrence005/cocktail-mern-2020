@@ -4,12 +4,16 @@ function User(props) {
   return (
     <div className="user"
       key={props.id}>
-      <h2>{props.userName}</h2>
-      <p>{props.id}</p>
+      <div className="user-pic-name">
+        <img src={props.userImage}
+          alt={"user-" + props.userName}
+          className="user-pic" />
+        <h2>{props.userName}</h2>
+      </div>
       <h4>{props.email}</h4>
+      <p>{props.id}</p>
       <p>{props.bio}</p>
-      <img src={props.userImage}
-        alt={"user-" + props.userName} />
+
     </div>
   )
 }

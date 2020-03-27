@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import './App.css';
 // import User from './components/Users';
 import UserContainer from './containers/UserContainer';
@@ -343,12 +343,43 @@ class App extends React.Component {
 
 
     return (
-      <div className="outer-container">
-        <Navigation />
-        <div className="main-container">
-          <SvgFormContainer />
 
-          {/* <div className="users-wrapper">
+      <Router>
+        {/* <div>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/topics">Topics</Link>
+            </li>
+          </ul> */}
+
+        <Switch>
+          <Route path="/users">
+            {/* <UserContainer /> */}
+          </Route>
+          <Route path="/classics">
+            <ClassicCocktail />
+          </Route>
+          <Route path="/notclassics">
+            <NonClassicCocktail />
+          </Route>
+          {/* <Route path="/">
+            <Home />
+          </Route> */}
+        </Switch>
+        {/* </div> */}
+
+        <div className="outer-container">
+          <Navigation />
+          <div className="main-container">
+            <SvgFormContainer />
+
+            {/* <div className="users-wrapper">
           {this.state.users.map((user) => (
             <User
               key={user._id}
@@ -363,36 +394,37 @@ class App extends React.Component {
           }
         </div> */}
 
-          <UserContainer
-            key={this.state.users._id}
-            list={this.state.users}
-          // userName={this.state.userName}
-          // id={this.state.id}
-          // email={this.state.email}
-          // bio={this.state.bio} userImage={this.state.userImage}
-          />
-          <UserForm />
-
-          <RecipeForm />
-
-          <Search />
-          <div className="all-cocktail-list-container" >
-            <ClassicCocktail
-              // name={this.state.cocktails.cocktailName}
-              key={this.state.cocktails.cocktailId}
-              list={this.state.cocktails.filter(cocktail => cocktail.isClassic)}
+            <UserContainer
+              key={this.state.users._id}
+              list={this.state.users}
+            // userName={this.state.userName}
+            // id={this.state.id}
+            // email={this.state.email}
+            // bio={this.state.bio} userImage={this.state.userImage}
             />
-            <NonClassicCocktail
-              key={this.state.cocktails.cocktailId}
-              list={this.state.cocktails.filter(cocktail => cocktail.isClassic !== true)}
-            />
-          </div>
-          {/* {this.state.contacts.map((contact, id) => (
+            <UserForm />
+
+            <RecipeForm />
+
+            <Search />
+            <div className="all-cocktail-list-container" >
+              <ClassicCocktail
+                // name={this.state.cocktails.cocktailName}
+                key={this.state.cocktails.cocktailId}
+                list={this.state.cocktails.filter(cocktail => cocktail.isClassic)}
+              />
+              <NonClassicCocktail
+                key={this.state.cocktails.cocktailId}
+                list={this.state.cocktails.filter(cocktail => cocktail.isClassic !== true)}
+              />
+            </div>
+            {/* {this.state.contacts.map((contact, id) => (
           <p key={contact.id}> {contact.name} id# {contact.id}</p> 
         ))}*/}
 
+          </div>
         </div>
-      </div>
+      </Router >
     );
   }
 }

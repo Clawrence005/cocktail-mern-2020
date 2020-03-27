@@ -95,6 +95,9 @@ border: 3px solid purple;
   /* grid-template-columns: repeat(3, 1fr); */
   grid-template-columns:repeat(auto-fill, minmax(370px, 1fr));
 }
+.active-glass{
+  border: 3px solid grey;
+}
 
 .recipe-form{
   border: 3px solid red;
@@ -128,6 +131,12 @@ border: 3px solid purple;
   padding: .5rem;
 }
 
+.color-swatch-wrapper{
+  border: 3px solid yellowgreen;  
+}
+.color-swatch{
+
+}
 
 .all-cocktail-list-container{
   /* margin: 1em; */

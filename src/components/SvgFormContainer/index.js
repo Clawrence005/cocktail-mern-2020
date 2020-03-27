@@ -49,10 +49,24 @@ class SvgFormContainer extends React.Component {
       <div className="cocktail-svg-maker">
         <h1>Illustrate Your Recipe</h1>
 
+        <ColorSwatch
+          ice={this.state.ice}
+
+          hasLime={this.state.hasLime}
+          hasLemon={this.state.hasLemon}
+          hasOrange={this.state.hasOrange}
+          hasPeel={this.state.hasPeel}
+          hasMint={this.state.hasMint}
+          hasCuke={this.state.hasCuke}
+          hasCherry={this.state.hasCherry}
+
+          washline={this.state.washline}
+        />
+
         <div className="SvgForm" >
 
           <h4>SvgForm</h4>
-
+          <h3>Does your Drink have Ice?</h3>
           <label>No Ice</label>
           <input
             type="radio"
@@ -80,6 +94,7 @@ class SvgFormContainer extends React.Component {
             value="largeIce"
           />
           <br />
+          <h3>Does your Drink have any of these garnishes?</h3>
           <label>Lime</label>
           <input
             type="checkbox"
@@ -161,7 +176,7 @@ class SvgFormContainer extends React.Component {
             value={this.state.sugar}
           />
           <br /> */}
-
+          <h3>How full is your Drink?</h3>
           <label>Liquid Low</label>
           <input
             type="radio"
@@ -207,7 +222,7 @@ class SvgFormContainer extends React.Component {
           />
           <br /> */}
 
-          <ColorSwatch
+          {/* <ColorSwatch
             ice={this.state.ice}
 
             hasLime={this.state.hasLime}
@@ -219,7 +234,7 @@ class SvgFormContainer extends React.Component {
             hasCherry={this.state.hasCherry}
 
             washline={this.state.washline}
-          />
+          /> */}
         </div ></div>
     )
   }

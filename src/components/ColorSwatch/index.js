@@ -149,13 +149,17 @@ class ColorSwatch extends React.Component {
 
     return (
 
-      <div className="color-swatch" >
-        <h1>ColorSwatch</h1>
+      <div className="color-swatch-wrapper">
 
-        {chooseGlass()}
 
-        <label>Svg Glass Choice
-            <select
+        <div className="active-glass">
+          {chooseGlass()}
+        </div>
+
+        <div className="choose-glass">
+
+          <h3>First choose your glass...</h3>
+          <select
             value={this.state.glassChoice}
             onChange={this.handleSvgFormChange}
             name="glassChoice"
@@ -165,26 +169,25 @@ class ColorSwatch extends React.Component {
             <option value="rocks">rocks</option>
             <option value="tiki">tiki</option>
           </select>
+        </div>
+        <div className="color-swatch" >
+          <h3>Next what color is the drink?</h3>
+          <p>click on the color picker to choose</p>
+          <div>
+            <div style={styles.swatch} onClick={this.handleClick}>
+              <div style={styles.color} />
+            </div>
+            {this.state.displayColorPicker ? <div style={styles.popover}>
+              <div style={styles.cover} onClick={this.handleClose} />
 
-        </label>
-
-        <div>
-          <div style={styles.swatch} onClick={this.handleClick}>
-            <div style={styles.color} />
+              <SketchPicker color={this.state.color} onChange={this.handleChange} />
+            </div> : null}
           </div>
-          {this.state.displayColorPicker ? <div style={styles.popover}>
-            <div style={styles.cover} onClick={this.handleClose} />
-
-            <SketchPicker color={this.state.color} onChange={this.handleChange} />
-          </div> : null}
-          {/* <svg className="square" width="400" height="110">
-            <rect width="290" height="90" stroke="black" strokeWidth="3" style={styles.square} />
-          </svg>
-
-          <svg className="circle" height="100" width="100">
-            <circle cx="50" cy="50" r="40" stroke="black" strokeWidth="3" style={styles.circle} />
-          </svg> */}
-        </div>     </div>
+          {/* <div className="chosenGlass">
+          {chooseGlass()}
+        </div> */}
+        </div>
+      </div>
     )
   }
 }

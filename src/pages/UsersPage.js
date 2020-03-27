@@ -1,27 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import './App.css';
-// import User from './components/Users';
+import UserContainer from '../containers/UserContainer';
+import ClassicCocktail from '../containers/ClassicCocktail';
+import NonClassicCocktail from '../containers/NonClassicCocktail';
+import RecipeForm from '../components/RecipeForm';
+import SvgFormContainer from '../components/SvgFormContainer';
+import UserForm from '../components/UserForm';
+import Search from '../components/Search';
 
-import HomePage from './pages/HomePage';
-import UsersPage from './pages/UsersPage';
-import CocktailPage from './pages/CocktailPage';
-
-import UserContainer from './containers/UserContainer';
-import ClassicCocktail from './containers/ClassicCocktail';
-import NonClassicCocktail from './containers/NonClassicCocktail';
-import RecipeForm from './components/RecipeForm';
-import SvgFormContainer from './components/SvgFormContainer';
-import UserForm from './components/UserForm';
-import Search from './components/Search';
-
-import Navigation from './components/Navigation';
+import Navigation from '../components/Navigation';
 // import ColorSwatch from './components/ColorSwatch';
 //responsible for sending the post to the backend
 import axios from 'axios';
 // "concurrently \"yarn run start-watch\" \"cd client && yarn start\""
 
-class App extends React.Component {
+class UsersPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -34,170 +26,8 @@ class App extends React.Component {
       apiCocktails: [],
       cocktails: [],
       users: [],
-      // colors: [],
-      // cocktails: [
-      //   {
-      //     cocktailName: 'martini',
-      //     cocktailId: 1,
-      //     isClassic: true,
-      //     creatorName: 'unknown',
-      //     isShaken: false,
-      //     isDoubleStrain: true,
-      //     details: [
-      //       { info: '333' },
-      //       { info: '733' },
-      //       { info: '533' }
-      //     ],
-
-      //     ingredients: [
-      //       '2 oz london dry gin',
-      //       '1 oz dry vermouth',
-      //       '1 dash orange bitters',
-      //     ],
-      //     garnish: 'lemon peel',
-      //     method: "stir the ingredients",
-      //     glass: "martini",
-      //     image: './assets/img/cocktail1.jpeg',
-
-      //   },
-      //   {
-      //     cocktailName: 'old fashioned',
-      //     cocktailId: 2,
-      //     isClassic: true,
-      //     creatorName: 'unknown',
-      //     isShaken: false,
-      //     isDoubleStrain: false,
-
-      //     details: [
-      //       { info: '333' },
-      //       { info: '733' },
-      //       { info: '533' }
-      //     ],
-
-      //     ingredients: [
-      //       '2 oz rye whiskey',
-      //       '.5 oz demerara syrup',
-      //       '3 dash Angostura bitters',
-      //     ],
-      //     garnish: 'lemon peel',
-      //     method: "stir the ingredients",
-      //     glass: "old fashioned glass",
-      //     image: './assets/img/cocktail1.jpeg',
-      //   },
-      //   {
-      //     cocktailName: 'mojito',
-      //     cocktailId: 3,
-      //     isClassic: true,
-      //     creatorName: 'unknown',
-      //     isShaken: false,
-      //     isDoubleStrain: false,
-
-      //     details: [
-      //       { info: '333' },
-      //       { info: '733' },
-      //       { info: '533' }
-      //     ],
-      //     ingredients: [
-      //       '1.5 oz light cuban style rum',
-      //       '.75 oz simple syrup',
-      //       '.75 oz lime juice',
-      //       '1 oz sparkling water'
-      //     ],
-      //     garnish: 'muddled mint',
-      //     method: 'muddle mint, add rest of ingredients, and top with sparkling water then ice',
-      //     glass: "collins glass",
-      //     image: "https://images.pexels.com/photos/1224158/pexels-photo-1224158.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      //   },
-      //   {
-      //     cocktailName: 'daiquiri',
-      //     cocktailId: 4,
-      //     isClassic: true,
-      //     creatorName: 'unknown',
-      //     isShaken: true,
-      //     isDoubleStrain: true,
-
-      //     details: [
-      //       { info: '333' },
-      //       { info: '733' },
-      //       { info: '533' }
-      //     ],
-
-      //     ingredients: [
-      //       '2 oz light rum',
-      //       '.75 oz simple syrup',
-      //       '.75 oz lime juice',
-      //       '1 oz sparkling water'
-      //     ],
-
-      //     garnish: 'lime wheel',
-      //     method: "shake with ice and double strain",
-      //     glass: "coupe",
-      //     image: './assets/img/cocktail1.jpeg',
-
-      //   },
-      //   {
-      //     cocktailName: 'new fashioned',
-      //     cocktailId: 5,
-      //     isClassic: false,
-      //     creatorName: 'unknown',
-      //     isShaken: true,
-      //     isDoubleStrain: true,
-
-      //     details: [
-      //       { info: '333' },
-      //       { info: '733' },
-      //       { info: '533' }
-      //     ],
-
-      //     ingredients: [
-      //       '2 oz light rum',
-      //       '.75 oz simple syrup',
-      //       '.75 oz lime juice',
-      //       '1 oz sparkling water'
-      //     ],
-
-      //     garnish: 'lime wheel',
-      //     method: "shake with ice and double strain",
-      //     glass: "coupe",
-      //     image: './assets/img/cocktail1.jpeg',
-      //   },
-
-      // ]
     }
-
   }
-
-  // componentDidMount() {
-  //   console.log('--component did mount');
-  //   axios.get("https://jsonplaceholder.typicode.com/users").then(response => {
-  //     const newContacts = response.data.map(c => {
-  //       return {
-  //         id: c.id,
-  //         name: c.name,
-  //         username: c.username,
-  //         email: c.email,
-
-  //       };
-  //     });
-  //     const newState = Object.assign({}, this.state, {
-  //       contacts: newContacts
-  //     });
-  //     console.log('newState', newState);
-  //     this.setState(newState);
-  //   }).catch(error => console.log(error))
-  // }
-  getCocktails() {
-    axios.get('http://localhost:4000/cocktails/')
-      .then(res => {
-        const cocktails = res.data;
-        this.setState({ cocktails });
-        console.log('cocktails :', res.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-  }
-
   getUsers() {
     axios.get('http://localhost:4000/users/').then(res => {
       const users = res.data;
@@ -209,7 +39,7 @@ class App extends React.Component {
       })
   }
   componentDidMount() {
-    this.getCocktails();
+    // this.getCocktails();
     this.getUsers();
   }
 
@@ -332,29 +162,8 @@ class App extends React.Component {
   render() {
     console.log('--rendering ')
 
-    // return (
-    {/*     <Router>
-        <Link to="/">Home</Link><br/>
-        <Link to="/create">create cocktail</Link> <br/>
-        <Link to="/classic">classic cocktail</Link><br/>
-        <Link to="/nonclassic">nonclassic cocktail</Link><br/>
-
-        <Route path="/" exact component={Search} />
-        <Route path="/search" exact component={Search} />
-        <Route path="/classic" exact component={ClassicCocktail} />
-        <Route path="/nonclassic" exact component={NonClassicCocktail} />
-
-        <Route path="/edit/:id" exact component={EditCocktail} /> */}
-
-
     return (
       <>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/users" component={UsersPage} />
-          <Route path="/cocktails" component={CocktailPage} />
-          {/* <Route path="/categories/:id" component={IndividualCategoryPage} /> */}
-        </Switch>
 
 
         <div className="outer-container">
@@ -413,4 +222,4 @@ class App extends React.Component {
 }
 
 
-export default App;
+export default UsersPage;

@@ -1,7 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import './App.css';
 // import User from './components/Users';
+
+import HomePage from './pages/HomePage';
+import UsersPage from './pages/UsersPage';
+import CocktailPage from './pages/CocktailPage';
+
 import UserContainer from './containers/UserContainer';
 import ClassicCocktail from './containers/ClassicCocktail';
 import NonClassicCocktail from './containers/NonClassicCocktail';
@@ -342,14 +347,22 @@ class App extends React.Component {
         <Route path="/edit/:id" exact component={EditCocktail} /> */}
 
 
-    return (<>
+    return (
+      <>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/users" component={UsersPage} />
+          <Route path="/cocktails" component={CocktailPage} />
+          {/* <Route path="/categories/:id" component={IndividualCategoryPage} /> */}
+        </Switch>
 
-      <Navigation />
-      <div className="main-container">
 
-        <SvgFormContainer />
+        <div className="outer-container">
+          <Navigation />
+          <div className="main-container">
+            <SvgFormContainer />
 
-        {/* <div className="users-wrapper">
+            {/* <div className="users-wrapper">
           {this.state.users.map((user) => (
             <User
               key={user._id}
@@ -364,36 +377,37 @@ class App extends React.Component {
           }
         </div> */}
 
-        <UserContainer
-          key={this.state.users._id}
-          list={this.state.users}
-        // userName={this.state.userName}
-        // id={this.state.id}
-        // email={this.state.email}
-        // bio={this.state.bio} userImage={this.state.userImage}
-        />
-        <UserForm />
+            <UserContainer
+              key={this.state.users._id}
+              list={this.state.users}
+            // userName={this.state.userName}
+            // id={this.state.id}
+            // email={this.state.email}
+            // bio={this.state.bio} userImage={this.state.userImage}
+            />
+            <UserForm />
 
-        <RecipeForm />
+            <RecipeForm />
 
-        <Search />
-        <div className="all-cocktail-list-container" >
-          <ClassicCocktail
-            // name={this.state.cocktails.cocktailName}
-            key={this.state.cocktails.cocktailId}
-            list={this.state.cocktails.filter(cocktail => cocktail.isClassic)}
-          />
-          <NonClassicCocktail
-            key={this.state.cocktails.cocktailId}
-            list={this.state.cocktails.filter(cocktail => cocktail.isClassic !== true)}
-          />
-        </div>
-        {/* {this.state.contacts.map((contact, id) => (
+            <Search />
+            <div className="all-cocktail-list-container" >
+              <ClassicCocktail
+                // name={this.state.cocktails.cocktailName}
+                key={this.state.cocktails.cocktailId}
+                list={this.state.cocktails.filter(cocktail => cocktail.isClassic)}
+              />
+              <NonClassicCocktail
+                key={this.state.cocktails.cocktailId}
+                list={this.state.cocktails.filter(cocktail => cocktail.isClassic !== true)}
+              />
+            </div>
+            {/* {this.state.contacts.map((contact, id) => (
           <p key={contact.id}> {contact.name} id# {contact.id}</p> 
         ))}*/}
 
-      </div>
-    </>
+          </div>
+        </div>
+      </>
     );
   }
 }

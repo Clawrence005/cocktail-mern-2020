@@ -156,11 +156,13 @@ border: 3px solid purple;
   gap: 1em; */
 } 
 
-.cocktail-div{  
+.cocktail{  
+  display: inline-block;
   /* padding: 1em; */
-  /* border: 3px solid red; */
+  border: 3px solid black;
   width: 333px;
 }
+
 /* -3px -3px 7px 0 #ffffff73, inset
 3px 3px 5px 0 rgba(94,104,121, .288);
 } */

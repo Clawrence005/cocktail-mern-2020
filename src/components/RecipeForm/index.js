@@ -94,7 +94,7 @@ chosen color:    ${this.state.chosenColor}
         <h4>chosenColor: {this.state.chosenColor}</h4>
         <br /> */}
 
-        <h4>Cocktail Name</h4>
+        <label><h4>Cocktail Name</h4></label>
         <input
           className="neumorphism-negative-template"
           type='text'
@@ -105,7 +105,7 @@ chosen color:    ${this.state.chosenColor}
         />
         <br />
 
-        <h4>Creator Name</h4>
+        <label><h4>Creator Name</h4></label>
         <input
           className="neumorphism-negative-template"
           type='text'

@@ -2,7 +2,7 @@ import React from 'react';
 
 function Cocktail(props) {
   return (
-    <div className="cocktail-div"
+    <div className="cocktail"
       key={props._id}>
       <h3>{props.cocktailName}</h3>
       <h4>  created by: {props.creatorName}</h4>

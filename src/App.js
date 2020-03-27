@@ -365,7 +365,7 @@ class App extends React.Component {
           <Route path="/classics">
             <ClassicCocktail />
           </Route>
-          <Route path="/notclassics">
+          <Route path="/notclassic">
             <NonClassicCocktail />
           </Route>
           {/* <Route path="/">

@@ -367,14 +367,10 @@ class App extends React.Component {
         <UserContainer
           key={this.state.users._id}
           list={this.state.users}
-        // userName={this.state.userName}
-        // id={this.state.id}
-        // email={this.state.email}
-        // bio={this.state.bio} userImage={this.state.userImage}
         />
         <UserForm />
 
-        <RecipeForm />
+        {/* <RecipeForm /> */}
 
         <Search />
         <div className="all-cocktail-list-container" >

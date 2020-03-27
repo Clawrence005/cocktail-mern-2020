@@ -9,9 +9,12 @@ function Navigation() {
       <h1>Shake/Stir</h1>
       <br /><br /><br /><br /><br /><br />
 
-      <p>wdedwedwefewf</p>
-      <p>wdedwedwefewf</p>
-      <p>wdedwedwefewf</p>
+      <p>Home</p>     <br /><br /><br /><br />
+      <p>Users</p>     <br /><br /><br /><br />
+      <p>Create a Recipe</p>     <br /><br /><br /><br />
+      <p>Cocktails</p>     <br /><br /><br /><br />
+      <p>Classic Cocktails</p>     <br /><br /><br /><br />
+      <p>Cocktails</p>
 
       {/* <li><Link to="/">Home</Link></li>
       <li><Link to="/users">Users</Link></li>

@@ -4,7 +4,7 @@ import User from '../../components/User';
 function UserContainer(props) {
   return (
     <div className="users-container">
-      <h1>User Container</h1>
+      <h2 className="section-title" >User Container</h2>
       <div className="users-wrapper">
         {props.list.map((user) => (
           <User

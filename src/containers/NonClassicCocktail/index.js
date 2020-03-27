@@ -6,7 +6,7 @@ function NonClassicCocktail(props) {
     
     <div className="cocktail-list-container 
     non-classic-list">
-      <h2>Non-Classic Cocktail</h2>
+<h2 className="section-title" >Non-Classic Cocktails</h2>
       <div className="cocktail-list-grid">
         {/* {props.children} */}
         {props.list.map((cocktail) => (

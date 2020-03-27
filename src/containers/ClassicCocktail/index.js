@@ -6,7 +6,7 @@ function ClassicCocktail(props) {
   return (
 
     <div className="cocktail-list-container non-classic-list">
-      <h2>Classic Cocktails</h2>
+      <h2 className="section-title" >Classic Cocktails</h2>
       <div className="cocktail-list-grid">
         {/* {props.children} */}
         {props.list.map((cocktail) => (

@@ -370,7 +370,7 @@ class App extends React.Component {
         />
         <UserForm />
 
-        {/* <RecipeForm /> */}
+        <RecipeForm />
 
         <Search />
         <div className="all-cocktail-list-container" >

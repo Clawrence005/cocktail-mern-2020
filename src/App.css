@@ -101,12 +101,19 @@ box-shadow:
 } */
 
 
-.active-glass{
+.svg-active-glass{
+  display: flex;
   border: 3px solid grey;
+  /* calcs 1/2 of width */
+  width: calc( (100vw - var(--nav-width)) / 2);
+  position: relative;
+  top: 0;
+  right: 0;
 }
 
 .recipe-form{
-  border: 3px solid red;
+  border: 3px solid green;
+  width: calc( (100vw - var(--nav-width)) / 2);
 } 
 
 .user-form{
@@ -145,7 +152,8 @@ box-shadow:
 }
 
 .color-swatch-wrapper{
-  border: 3px solid yellowgreen;  
+  border: 3px solid yellowgreen; 
+  width: calc( (100vw - var(--nav-width)) / 2); 
 }
 .color-swatch{
 

@@ -1,4 +1,5 @@
- :root:{
+ :root {
+  --nav-width: 180px;
  }
  * {
    /* border: none; */
@@ -54,7 +55,7 @@ body{
 /* main container */
  .main-container{
  border: 3px solid blue;
-width: calc(100vw - 150px);
+width: calc(100vw - var(--nav-width));
 position: absolute;
 right:0;
 top:0;
@@ -63,7 +64,7 @@ top:0;
 .nav{
   background-color: coral;
   height: 100vh;
-  width: 150px;
+  width: var(--nav-width);
   position: fixed;
 }
 .cocktail-svg-maker{
@@ -178,7 +179,7 @@ border: 3px solid purple;
 }
 .cocktail-inner > p {
 list-style-type: none;
-text-indent: 1rem;
+margin-left: 1rem;
 }
 
 /* -3px -3px 7px 0 #ffffff73, inset

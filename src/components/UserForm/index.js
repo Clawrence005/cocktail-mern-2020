@@ -58,7 +58,7 @@ userImage: ${this.state.userImage}
             onChange={this.handleUserFormChange}
           />
         </label>
-
+        <br />
         <label>Email
           <input
             className="neumorphism-negative-template"
@@ -69,7 +69,7 @@ userImage: ${this.state.userImage}
             onChange={this.handleUserFormChange}
           />
         </label>
-
+        <br />
         <label>User Bio
           <textarea
             className="neumorphism-negative-template"
@@ -80,7 +80,7 @@ userImage: ${this.state.userImage}
             onChange={this.handleUserFormChange}
           />
         </label>
-
+        <br />
         <label>User Image
           <input
             className="neumorphism-negative-template"
@@ -91,7 +91,7 @@ userImage: ${this.state.userImage}
             onChange={this.handleUserFormChange}
           />
         </label>
-
+        <br />
         <button
           // className=""
           type="submit"

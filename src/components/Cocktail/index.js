@@ -2,26 +2,31 @@ import React from 'react';
 
 function Cocktail(props) {
   return (
-    <div className="cocktail"
+    <div className="cocktail-outer"
       key={props._id}>
-      <h3>{props.cocktailName}</h3>
-      <h4>  created by: {props.creatorName}</h4>
-      <img
-        src={props.cocktailImage}
-        alt={"image-" + props.cocktailName}
-        height="190px"
-        width="auto"
-      />
-      <li>id: {props._id}</li>
-      <strong>Ingredients</strong>
-      {props.ingredients.map((subItem, index) =>
+      <div className="cocktail-inner">
+        <h3 className="cocktail-title">{props.cocktailName}</h3>
+        <h4>  created by: {props.creatorName}</h4>
+        <img
+          className="cocktail-image"
+          src={props.cocktailImage}
+          alt={"image-" + props.cocktailName}
+        // height="190px"
+        // width="auto"
+        />
+        <li>id: {props._id}</li>
+        <strong>Ingredients:</strong>
+        {props.ingredients.map((subItem, index) =>
 
-        <li key={index}>{subItem}</li>)}
-      <p>  isShaken: {props.isShaken}</p>
-      <p>garnish: {props.garnish}</p>
-      <p>method: {props.method}</p>
-      <p>glassware: {props.glass}</p>
-    </div>
+          <li key={index}>{subItem}</li>)}
+        {/* <p>  isShaken: {props.isShaken}</p> */}
+        <span><strong>method: </strong>{props.method}</span>
+        <br />
+        <span><strong>garnish: </strong>{props.garnish}</span>
+        <br />
+        <span><strong>glassware: </strong>{props.glass}</span>
+      </div>
+    </div >
   )
 }
 

@@ -155,12 +155,26 @@ border: 3px solid purple;
   grid-template-columns: 1fr 1fr;
   gap: 1em; */
 } 
-
-.cocktail{  
+.cocktail-outer{  
+  border: 3px solid green;
+  display: inline-flex;
+}
+.cocktail-inner{  
   display: inline-block;
   /* padding: 1em; */
-  border: 3px solid black;
-  width: 333px;
+
+  width: 280px;
+  margin:1rem;
+}
+.cocktail-image{ 
+  width: 280px; 
+  height: 200px;
+  object-fit: cover;
+}
+.cocktail-title{
+  display: flex; 
+   border: 3px solid black;
+  justify-content: center;
 }
 
 /* -3px -3px 7px 0 #ffffff73, inset

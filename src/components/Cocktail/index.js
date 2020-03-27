@@ -11,20 +11,20 @@ function Cocktail(props) {
           className="cocktail-image"
           src={props.cocktailImage}
           alt={"image-" + props.cocktailName}
-        // height="190px"
-        // width="auto"
         />
+        <h4>  created by: {props.creatorName}</h4>
+        <br />
         <li>id: {props._id}</li>
         <strong>Ingredients:</strong>
         {props.ingredients.map((subItem, index) =>
 
-          <li key={index}>{subItem}</li>)}
+          <p key={index}>{subItem}</p>)}
         {/* <p>  isShaken: {props.isShaken}</p> */}
-        <span><strong>method: </strong>{props.method}</span>
+        <span><strong>method:  </strong>{props.method}</span>
         <br />
-        <span><strong>garnish: </strong>{props.garnish}</span>
+        <span><strong>garnish:  </strong>{props.garnish}</span>
         <br />
-        <span><strong>glassware: </strong>{props.glass}</span>
+        <span><strong>glassware:  </strong>{props.glass}</span>
       </div>
     </div >
   )

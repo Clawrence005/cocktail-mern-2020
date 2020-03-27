@@ -156,13 +156,12 @@ border: 3px solid purple;
   gap: 1em; */
 } 
 .cocktail-outer{  
-  border: 3px solid green;
+  /* border: 3px solid green; */
   display: inline-flex;
 }
 .cocktail-inner{  
   display: inline-block;
   /* padding: 1em; */
-
   width: 280px;
   margin:1rem;
 }
@@ -170,11 +169,16 @@ border: 3px solid purple;
   width: 280px; 
   height: 200px;
   object-fit: cover;
+  margin-top: 10px;
 }
 .cocktail-title{
   display: flex; 
    border: 3px solid black;
   justify-content: center;
+}
+.cocktail-inner > p {
+list-style-type: none;
+text-indent: 1rem;
 }
 
 /* -3px -3px 7px 0 #ffffff73, inset

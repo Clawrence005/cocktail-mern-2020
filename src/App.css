@@ -88,8 +88,8 @@ top: 0;
 
 /* cocktail page */
 .cocktail-page-main{
-  display: inline-block;
-  background-color: turquoise;
+  /* display: inline-block; */
+  /* background-color: turquoise; */
   /* height: 100vh; */
   /* width: calc(100vw - var(--nav-width)); */
 }
@@ -209,9 +209,7 @@ box-shadow:
   border: 3px solid yellowgreen; 
   width: calc( (100vw - var(--nav-width)) / 2); 
 }
-.color-swatch{
 
-}
 
 .cocktails-wrapper{
     border: 3px solid green;

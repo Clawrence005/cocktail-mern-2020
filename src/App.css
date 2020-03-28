@@ -54,13 +54,35 @@ body{
 }
 /* main container */
  .main-container{
- border: 3px solid blue;
+ /* border: 3px solid blue;
 width: calc(100vw - var(--nav-width));
 position: absolute;
 right:0;
-top:0;
+top:0; */
 
 } 
+/* .main-wrapper{
+  border: 3px solid blue;
+  width: calc(100vw - var(--nav-width));
+  position: absolute;
+  right:0;
+  top:0; 
+}*/
+.page-content{
+  border: 3px solid grey;
+  position: absolute; 
+border: 3px solid pink;
+right: 0;
+top: 0;
+}
+
+/* Pages */
+/* homepage */
+.home-page-main{
+  background-color: hotpink;
+  height: 100vh;
+  width: calc(100vw - var(--nav-width));
+}
 .nav{
   background-color: coral;
   height: 100vh;

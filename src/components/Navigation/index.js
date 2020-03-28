@@ -1,27 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Navigation() {
   return (
     <div className="nav">
+      <h1>Main nav</h1>
+      <ul>
+        <div className="nav-link-wrapper">
+          <Link to={'/'} className="nav-link">Home Page</Link>
+        </div>
+        <div className="nav-link-wrapper">
+          <Link to={'/users'}>Users Page</Link >
+        </div>
+        <div className="nav-link-wrapper">
+          <Link to={'/cocktails'}>Cocktail Page</Link>
+        </div>
 
-      <h1>Logo</h1>
-      <h1>Shake/Stir</h1>
-      <br /><br /><br /><br /><br /><br />
-
-      <p>Home</p>     <br /><br /><br /><br />
-      <p>Users</p>     <br /><br /><br /><br />
-      <p>Create a Recipe</p>     <br /><br /><br /><br />
-      <p>Cocktails</p>     <br /><br /><br /><br />
-      <p>Classic Cocktails</p>     <br /><br /><br /><br />
-      <p>Cocktails</p>
-
-      {/* <li><Link to="/">Home</Link></li>
-      <li><Link to="/users">Users</Link></li>
-      <li><Link to="/cocktails">classics</Link></li> */}
-
-
-
+      </ul>
     </div>
   )
 }

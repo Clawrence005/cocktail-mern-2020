@@ -76,10 +76,23 @@ right: 0;
 top: 0;
 }
 
-/* Pages */
-/* homepage */
+/* PAGES */
+/* home page */
 .home-page-main{
   background-color: hotpink;
+  height: 100vh;
+  width: calc(100vw - var(--nav-width));
+}
+
+/* cocktail page */
+.cocktail-page-main{
+  background-color: turquoise;
+  height: 100vh;
+  width: calc(100vw - var(--nav-width));
+}
+/* users page */
+.users-page-main{
+  background-color: rgb(252, 242, 155);
   height: 100vh;
   width: calc(100vw - var(--nav-width));
 }

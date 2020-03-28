@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import './App.css';
+import Navigation from './components/Navigation';
+
 import HomePage from './pages/HomePage';
 import CocktailPage from './pages/CocktailPage';
 import UsersPage from './pages/UsersPage';
@@ -11,7 +13,7 @@ class App extends React.Component {
     return (
       <Router>
         <div className="main-wrapper">
-          <div className="nav">
+          {/* <div className="nav">
             <h1>Main nav</h1>
             <ul>
               <div className="nav-link-wrapper">
@@ -25,7 +27,8 @@ class App extends React.Component {
               </div>
 
             </ul>
-          </div>
+          </div> */}
+          <Navigation />
           <div className="page-content">
             <Switch>
               <Route exact path="/" component={HomePage} />

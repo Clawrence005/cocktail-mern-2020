@@ -32,10 +32,10 @@ class App extends React.Component {
           <div className="page-content">
             <Switch>
               <Route exact path="/" component={HomePage} />
+              {/* <Route exact path="/signin" component={SigninPage} /> */}
               <Route exact path="/users" component={UsersPage} />
               <Route exact path="/cocktails" component={CocktailPage} />
 
-              {/* <Route exact path="/classics" component={ClassicsPage} /> */}
 
             </Switch>
           </div>

@@ -50,6 +50,7 @@ class CocktailPage extends React.Component {
           key={this.state.cocktails.cocktailId}
           list={this.state.cocktails.filter(cocktail => cocktail.isClassic !== true)}
         />
+        <RecipeForm />
 
       </div>
     )

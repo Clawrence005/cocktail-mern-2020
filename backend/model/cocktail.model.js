@@ -11,6 +11,9 @@ let CocktailSchema = new Schema({
   cocktailName: { type: String },
   // cocktailId: [UserSchema], 
   creatorName: { type: String },
+  // author: {
+  //   type: Schema.Types.ObjectId, ref: 'User'
+  // },
   cocktailImage: [Schema.Types.Mixed],
 
   isClassic: { type: Boolean },
@@ -32,5 +35,9 @@ let CocktailSchema = new Schema({
 
   // image: { type: String, trim: true },
 }, { timestamps: true });
+
+
+// const Cocktail = mongoose.model('Cocktail', CocktailSchema, 'cocktails');
+// const User = mongoose.model('User', UserSchema, 'users');
 
 module.exports = mongoose.model('Cocktail', CocktailSchema)

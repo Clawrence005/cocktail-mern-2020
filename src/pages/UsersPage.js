@@ -1,8 +1,9 @@
 import React from 'react';
-
+import User from '../components/User';
 import Search from '../components/Search';
 import UserContainer from '../containers/UserContainer';
 import UserForm from '../components/UserForm';
+// import Users from '../components/User';
 import axios from 'axios';
 
 
@@ -11,7 +12,10 @@ class UsersPage extends React.Component {
     super(props)
     this.state = {
       users: [],
+
+      search: "",
     }
+    this.handleSearchFilter = this.handleSearchFilter.bind(this);
   }
 
   getUsers() {
@@ -24,6 +28,25 @@ class UsersPage extends React.Component {
     })
   }
 
+  // filterList = (event) => {
+  //   let items = this.state.users;
+  //   items = items.filter((item) => {
+  //     return item.toLowercase().search(event.target.value.toLowercase()) !== this.state.item.userName;
+  //   });
+  //   this.setState({ items: items })
+  // }
+
+  handleSearchFilter(event) {
+    this.setState({ search: event.target.value })
+  }
+
+  // componentWillMount = () => {
+  //   this.setState({
+  //     initialItems: this.props.content,
+  //     items: this.props.content
+  //   })
+  // }
+
   componentDidMount() {
     console.log('--cmpntDidMount Users page');
     this.getUsers();
@@ -31,12 +54,41 @@ class UsersPage extends React.Component {
 
   render() {
     console.log('--rendering Users page');
+    let filterUsersByName = this.state.users.filter(
+      (user) => {
+        return user.userName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+      }
+    );
 
+    let filterUsersByEmail = this.state.users.filter((user) => {
+      return user.email.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+    })
 
     return (
       <div className="users-page-main" >
+
+        <label>Search by Name
+        <form>
+            <input type="text"
+              value={this.state.search}
+              placeholder="Search"
+              onChange={this.handleSearchFilter} />
+          </form></label>
+
+        {/* this shows the list */}
+        <h2 className="section-title">Filter by name</h2>
+        {filterUsersByName.map((user) => {
+          return <User
+            key={user._id}
+            userImage={user.userImage}
+            userName={user.userName}
+            email={user.email}
+            bio={user.bio}
+          />
+        })}
+
         <h1>UsersPage</h1>
-        <Search />
+        {/* <Search /> */}
         <UserContainer
           key={this.state.users._id}
           list={this.state.users} />

@@ -2,11 +2,11 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import Cocktail from '../../components/Cocktail';
 
-function ClassicCocktail(props) {
+function CocktailSearchWrapper(props) {
   return (
 
-    <div className="cocktail-list-container non-classic-list">
-      <h2 className="section-title" >Classic Cocktails</h2>
+    <div className="cocktails-wrapper">
+      {/* <h2 className="section-title" >Title</h2> */}
       <div className="cocktail-list-grid">
         {/* {props.children} */}
         {props.list.map((cocktail) => (
@@ -28,4 +28,4 @@ function ClassicCocktail(props) {
   )
 }
 
-export default ClassicCocktail;
+export default CocktailSearchWrapper;

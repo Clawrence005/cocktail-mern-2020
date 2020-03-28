@@ -1,7 +1,6 @@
 import React from 'react';
 import Search from '../components/Search';
-import ClassicCocktail from '../containers/ClassicCocktail';
-import NonClassicCocktail from '../containers/NonClassicCocktail';
+import CocktailSearchWrapper from '../containers/CocktailSearchWrapper';
 import RecipeForm from '../components/RecipeForm';
 import axios from 'axios';
 
@@ -12,6 +11,7 @@ class CocktailPage extends React.Component {
     super(props)
     this.state = {
       cocktails: [],
+      titleClassic: 'Classic Cocktails', titleNonClassic: 'NonClassicCocktail',
     }
   }
 
@@ -39,14 +39,16 @@ class CocktailPage extends React.Component {
       <div className="cocktail-page-main">
         <h1>Cocktail Page</h1>
         <Search />
-
-        <ClassicCocktail
+        <h2 className="section-title" >Classic Cocktails</h2>
+        <CocktailSearchWrapper
           key={this.state.cocktails.cocktailsId}
+          title={this.state.title === 'ClassicCocktail'}
           list={this.state.cocktails.filter(cocktail => cocktail.isClassic === true)}
         />
-        <NonClassicCocktail
+        <h2 className="section-title" >NonClassic Cocktails</h2>
+        <CocktailSearchWrapper
           key={this.state.cocktails.cocktailId}
-          list={this.state.cocktails.filter(cocktail => cocktail.cocktail.isClassic !== true)}
+          list={this.state.cocktails.filter(cocktail => cocktail.isClassic !== true)}
         />
 
       </div>

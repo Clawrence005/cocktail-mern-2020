@@ -213,22 +213,14 @@ box-shadow:
 
 }
 
-.all-cocktail-list-container{
+.cocktails-wrapper{
+    border: 3px solid green;
   /* margin: 1em; */
   /* display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1em; */
 }
-.cocktail-list-container{
-/* width: 50%; */
-}
-.cocktail-list-grid{
-  /* padding: 1em; */
-  /* border: 3px solid blue; */
-  /* display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1em; */
-} 
+
 .cocktail-outer{  
   /* border: 3px solid green; */
   display: inline-flex;

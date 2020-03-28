@@ -10,10 +10,10 @@ function Navigation() {
           <Link to={'/'} className="nav-link">Home Page</Link>
         </div>
         <div className="nav-link-wrapper">
-          <Link to={'/users'}>Users Page</Link >
+          <Link to={'/users'} className="nav-link">Users Page</Link >
         </div>
         <div className="nav-link-wrapper">
-          <Link to={'/cocktails'}>Cocktail Page</Link>
+          <Link to={'/cocktails'} className="nav-link">Cocktail Page</Link>
         </div>
 
       </ul>

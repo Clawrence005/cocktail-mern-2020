@@ -40,9 +40,6 @@ class UsersPage extends React.Component {
           list={this.state.users} />
         <UserForm />
 
-
-
-
       </div>
     )
   }

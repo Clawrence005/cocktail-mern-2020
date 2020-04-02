@@ -16,6 +16,7 @@ function User(props) {
         <h4>{props.email}</h4>
         <p>{props.id}</p>
         <p>{props.bio}</p>
+        <p>{props.cocktailName}</p>
       </div>
 
     </div>

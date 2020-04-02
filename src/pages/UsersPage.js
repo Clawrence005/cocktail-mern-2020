@@ -13,9 +13,14 @@ class UsersPage extends React.Component {
     this.state = {
       users: [],
 
-      search: "",
+      // search: "",
+      nameSearch: "",
+      emailSearch: "",
     }
-    this.handleSearchFilter = this.handleSearchFilter.bind(this);
+    // this.handleSearchFilter = this.handleSearchFilter.bind(this);
+    this.handleSearchNames = this.handleSearchNames.bind(this);
+    this.handleSearchEmails = this.handleSearchEmails.bind(this);
+
   }
 
   getUsers() {
@@ -28,6 +33,7 @@ class UsersPage extends React.Component {
     })
   }
 
+
   // filterList = (event) => {
   //   let items = this.state.users;
   //   items = items.filter((item) => {
@@ -36,8 +42,12 @@ class UsersPage extends React.Component {
   //   this.setState({ items: items })
   // }
 
-  handleSearchFilter(event) {
-    this.setState({ search: event.target.value })
+  handleSearchNames(event) {
+    // console.log("nameSearch: ", this.state.nameSearch)
+    this.setState({ nameSearch: event.target.value })
+  }
+  handleSearchEmails(event) {
+    this.setState({ emailSearch: event.target.value })
   }
 
   // componentWillMount = () => {
@@ -56,28 +66,54 @@ class UsersPage extends React.Component {
     console.log('--rendering Users page');
     let filterUsersByName = this.state.users.filter(
       (user) => {
-        return user.userName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        return user.userName.toLowerCase().indexOf(this.state.nameSearch.toLowerCase()) !== -1;
       }
     );
 
     let filterUsersByEmail = this.state.users.filter((user) => {
-      return user.email.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+      return user.email.toLowerCase().indexOf(this.state.emailSearch.toLowerCase()) !== -1;
     })
 
     return (
       <div className="users-page-main" >
 
+        {/* <Search
+
+          value={this.state.nameSearch}
+          onChange={this.handleSearchNames}
+        /> */}
+
+        <h2 className="section-title">Filter by name</h2>
         <label>Search by Name
         <form>
             <input type="text"
-              value={this.state.search}
-              placeholder="Search"
-              onChange={this.handleSearchFilter} />
+              value={this.state.nameSearch}
+              placeholder="Search Names"
+              onChange={this.handleSearchNames} />
           </form></label>
 
-        {/* this shows the list */}
-        <h2 className="section-title">Filter by name</h2>
         {filterUsersByName.map((user) => {
+          return <User
+            key={user._id}
+            userImage={user.userImage}
+            userName={user.userName}
+            email={user.email}
+            bio={user.bio}
+          />
+        })}
+
+
+        <label>Search by Email
+        <form>
+            <input type="text"
+              value={this.state.emailSearch}
+              placeholder="Search Emails"
+              onChange={this.handleSearchEmails} />
+          </form></label>
+        {/* this shows the list */}
+
+        <h2 className="section-title">Filter by email</h2>
+        {filterUsersByEmail.map((user) => {
           return <User
             key={user._id}
             userImage={user.userImage}

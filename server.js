@@ -15,9 +15,9 @@ let User = require('./model/user.model')
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static('frontend'));
 
-mongoose.connect(process.envDATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 mongoose.set('useCreateIndex', true);
 
 

@@ -1,50 +1,13 @@
-// const express = require('express');
-// const app = express();
-// const mongoose = require('mongoose');
-// const bodyParser = require('body-parser');
+if (process.env.NODE_ENV !== 'development') {
+  require('dotenv').config()
+}
 
-// const PORT = 4000;
-// const cors = require('cors');
-// const config = require('./DB');
-// const ServerPortRouter = require('./routes/ServerPortRouter');
-
-// mongoose.connect(config.DB).then(
-//     () => {console.log('Database is connected') },
-//     err => { console.log('Can not connect to the database' +err)
-// });
-
-// app.use(cors());
-// app.use(bodyParser.urlencoded({extended: true}));
-// app.use(bodyParser.json());
-
-// app.use('/serverport', ServerPortRouter);
-
-// app.listen(PORT, function(){
-//   console.log('Server is running on Port: ',PORT);
-// });
-//
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const PORT = 4000;
-// const PORT = process.env.PORT || 3001;
-
-// // Define middleware here
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-// // Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//     app.use(express.static("client/build"));
-// }
-// // Add routes, both API and view
-// app.use(routes);
-
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/cocktail_list_revised";
-// // Connect to the Mongo DB
-// mongoose.connect(MONGODB_URI);
-
+const PORT = process.env.PORT || 4000;
 
 let Cocktail = require('./model/cocktail.model')
 let User = require('./model/user.model')
@@ -52,11 +15,14 @@ let User = require('./model/user.model')
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
-mongoose.connect('mongodb://127.0.0.1:27017/cocktailmern', { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
+mongoose.connect(process.envDATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 mongoose.set('useCreateIndex', true);
 
+
 const connection = mongoose.connection;
+connection.on('error', error => console.error(error));
 connection.once('open', function () {
   console.log("MongoDB database connection established successfully");
 });
@@ -209,6 +175,6 @@ userRoutes.route('/delete/:id').delete(function (req, res) {
   })
 });
 
-app.listen(PORT, function () {
+app.listen(process.env.PORT || PORT, function () {
   console.log("Server is running on Port: " + PORT);
 });

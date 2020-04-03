@@ -11,7 +11,8 @@ class CocktailPage extends React.Component {
     super(props)
     this.state = {
       cocktails: [],
-      titleClassic: 'Classic Cocktails', titleNonClassic: 'NonClassicCocktail',
+      titleClassic: 'Classic Cocktails',
+      titleNonClassic: 'NonClassicCocktail',
     }
   }
 

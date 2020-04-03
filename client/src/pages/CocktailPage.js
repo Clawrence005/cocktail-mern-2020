@@ -11,8 +11,7 @@ class CocktailPage extends React.Component {
     super(props)
     this.state = {
       cocktails: [],
-      titleClassic: 'Classic Cocktails',
-      titleNonClassic: 'NonClassicCocktail',
+      titleClassic: 'Classic Cocktails', titleNonClassic: 'NonClassicCocktail',
     }
   }
 
@@ -22,7 +21,7 @@ class CocktailPage extends React.Component {
   }
 
   getCocktails() {
-    axios.get('/cocktails/').then(res => {
+    axios.get('http://localhost:4000/cocktails/').then(res => {
       const cocktails = res.data;
       console.log('cocktails: ', res.data)
       this.setState({ cocktails });

@@ -8,16 +8,29 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 4000;
-
+const path = require('path')
 let Cocktail = require('./model/cocktail.model')
 let User = require('./model/user.model')
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+// const connection = "mongodb+srv://username:<password>@<cluster>/<database>?retryWrites=true&w=majority";
+// mongoose.connect(connection,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
+//     .then(() => console.log("Database Connected Successfully"))
+//     .catch(err => console.log(err));
+app.use(express.static(path.join(__dirname, 'build')));
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+// app.use(express.static('public'));
+
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => console.log("Database Connected Successfully"))
+  .catch(err => console.log(err));;
+
 mongoose.set('useCreateIndex', true);
 
 

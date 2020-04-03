@@ -1,4 +1,9 @@
+if (process.env.NODE_ENV === 'production') {
+  console.log('We are running in PRODuction mode')
+} else {
+  console.log(' We are running in DEVelopment mode')
 
+}
 
 const express = require('express');
 const app = express();
@@ -6,7 +11,7 @@ require('dotenv').config()
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 const path = require('path')
 
 
@@ -22,11 +27,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //     .catch(err => console.log(err));
 
 // ... other app.use middleware 
-app.use(express.static(path.join(__dirname, "client", "build")))
+// app.use(express.static(path.join(__dirname, "client", "build")))
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// app.get('/', function (req, res) {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
+
 
 // Or wherever you specify your database string
 mongoose.connect(process.env.MONGODB_URI || process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => console.log("Database Connected Successfully"))
@@ -188,7 +194,10 @@ userRoutes.route('/delete/:id').delete(function (req, res) {
       res.status(200).send('user with this id deleted')
   })
 });
-
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 
 app.get("*", (req, res) => {

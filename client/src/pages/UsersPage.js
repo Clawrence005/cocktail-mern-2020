@@ -24,7 +24,7 @@ class UsersPage extends React.Component {
   }
 
   getUsers() {
-    axios.get('http://localhost:4000/users/').then(res => {
+    axios.get('/users/').then(res => {
       const users = res.data;
       console.log('users: ', res.data)
       this.setState({ users });

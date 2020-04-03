@@ -29,7 +29,7 @@ app.get('/', function (req, res) {
 });
 
 // Or wherever you specify your database string
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/cocktailmern", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => console.log("Database Connected Successfully")).catch(err => console.log(err));;
+mongoose.connect(process.env.MONGODB_URI || DATABASE_URL || "mongodb://localhost/cocktailmern", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => console.log("Database Connected Successfully")).catch(err => console.log(err));;
 
 mongoose.set('useCreateIndex', true);
 

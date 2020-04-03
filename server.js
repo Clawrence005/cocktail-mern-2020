@@ -18,11 +18,10 @@ let User = require('./model/user.model')
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// const connection = "mongodb+srv://username:<password>@<cluster>/<database>?retryWrites=true&w=majority";
-// mongoose.connect(connection,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
-//     .then(() => console.log("Database Connected Successfully"))
-//     .catch(err => console.log(err));
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+}
 // ... other app.use middleware 
 app.use(express.static(path.join(__dirname, "client", "build")))
 

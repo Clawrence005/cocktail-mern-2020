@@ -1,14 +1,15 @@
-if (process.env.NODE_ENV !== 'development') {
-  require('dotenv').config()
-}
+
 
 const express = require('express');
 const app = express();
+require('dotenv').config()
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 4000;
 const path = require('path')
+
+
 let Cocktail = require('./model/cocktail.model')
 let User = require('./model/user.model')
 
@@ -20,18 +21,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //     .then(() => console.log("Database Connected Successfully"))
 //     .catch(err => console.log(err));
 
-// app.use(express.static(path.join(__dirname, 'build')));
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
+// ... other app.use middleware 
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-// app.use(express.static('public'));
-
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => console.log("Database Connected Successfully"))
+// Or wherever you specify your database string
+mongoose.connect(process.env.MONGODB_URI || process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => console.log("Database Connected Successfully"))
   .catch(err => console.log(err));;
 
 mongoose.set('useCreateIndex', true);
@@ -189,6 +187,12 @@ userRoutes.route('/delete/:id').delete(function (req, res) {
     else
       res.status(200).send('user with this id deleted')
   })
+});
+
+
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(process.env.PORT || PORT, function () {

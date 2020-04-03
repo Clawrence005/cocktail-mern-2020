@@ -21,7 +21,7 @@ class CocktailPage extends React.Component {
   }
 
   getCocktails() {
-    axios.get('http://localhost:4000/cocktails/').then(res => {
+    axios.get('/cocktails/').then(res => {
       const cocktails = res.data;
       console.log('cocktails: ', res.data)
       this.setState({ cocktails });

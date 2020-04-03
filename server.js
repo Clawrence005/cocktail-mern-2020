@@ -19,18 +19,18 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("build"));
+// }
 // ... other app.use middleware 
-app.use(express.static(path.join(__dirname, "client", "build")))
-
+// app.use(express.static(path.join(__dirname, "client", "build")))
+app.use('/', express.static(path.join(__dirname, '/client/build')));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 // Or wherever you specify your database string
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => console.log("Database Connected Successfully")).catch(err => console.log(err));;
+mongoose.connect(process.env.MONGODB_URI || process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => console.log("Database Connected Successfully")).catch(err => console.log(err));;
 
 mongoose.set('useCreateIndex', true);
 

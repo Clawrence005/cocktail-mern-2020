@@ -15,6 +15,9 @@ function Navigation() {
         <div className="nav-link-wrapper">
           <Link to={'/cocktails'} className="nav-link">Cocktail Page</Link>
         </div>
+        <div className="nav-link-wrapper">
+          <Link to={'/userdashboard'} className="nav-link">My Dashboard</Link>
+        </div>
 
       </ul>
     </div>

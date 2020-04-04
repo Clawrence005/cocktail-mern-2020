@@ -180,6 +180,21 @@ box-shadow:
   /* grid-template-columns: repeat(3, 1fr); */
   grid-template-columns:repeat(auto-fill, minmax(370px, 1fr));
 }
+/* individual user */
+.user-dashboard{
+display: flex;
+justify-content: center;
+/* text-align: center; */
+}
+.user-dashboard-content{  
+  border: 3px solid blue;
+  width: 65%;
+  padding: 2rem;
+}
+.dashboard-cocktails{
+  display: block;
+}
+/* user cmpnt */
 .user{
     border: 1px solid #f0efef;
     background-color: #f5f1f1;

@@ -33,7 +33,7 @@ app.get('/', function (req, res) {
 //     .then(() => console.log("Database Connected Successfully"))
 //     .catch(err => console.log(err));
 // Or wherever you specify your database string
-mongoose.connect(process.env.MONGODB_URI || process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => console.log("Database Connected Successfully")).catch(err => console.log(err));;
+mongoose.connect(process.env.MONGOLAB_BROWN_URI || process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => console.log("Database Connected Successfully")).catch(err => console.log(err));;
 
 mongoose.set('useCreateIndex', true);
 

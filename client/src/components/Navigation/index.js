@@ -5,7 +5,10 @@ function Navigation() {
   return (
     <div className="nav">
       <h1>Main nav</h1>
+      <img src="../assets/img/defaultAvatar.svg" alt="my pic" />
+      <h3>My Name</h3>
       <ul>
+        {/* if signed in show my avatar */}
         <div className="nav-link-wrapper">
           <Link to={'/'} className="nav-link">Home Page</Link>
         </div>

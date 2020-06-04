@@ -9,6 +9,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 4000;
 const path = require('path')
+const colors = require('colors');
 
 let Cocktail = require('./model/cocktail.model')
 let User = require('./model/user.model')
@@ -27,7 +28,7 @@ var cocktailRouter = require('./routes/cocktail.route');
 app.use('/users', userRouter);
 app.use('/cocktails', cocktailRouter);
 
-console.log("process.env.DATABASE_URL :", process.env.DATABASE_URL)
+// console.log("process.env.DATABASE_URL :", process.env.DATABASE_URL)
 // ... other app.use middleware 
 // app.use(express.static(path.join(__dirname, "client", "build")))
 
@@ -35,7 +36,7 @@ console.log("process.env.DATABASE_URL :", process.env.DATABASE_URL)
 //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 // });
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => console.log("Database Connected Successfully")).catch(err => console.log(err));
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => console.log(colors.green("Database Connected Successfully"))).catch(err => console.log(colors.red(err)));
 
 mongoose.set('useCreateIndex', true);
 
@@ -56,5 +57,5 @@ app.get("*", (req, res) => {
 //   });
 // }
 app.listen(process.env.PORT || PORT, function () {
-  console.log("Server is running on Port: " + PORT);
+  console.log(colors.brightBlue("Server is running on Port: " + PORT));
 });

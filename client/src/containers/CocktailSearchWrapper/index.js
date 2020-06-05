@@ -12,7 +12,8 @@ function CocktailSearchWrapper(props) {
         {props.list.map((cocktail) => (
           <Cocktail
             key={cocktail._id}
-            cocktailName={cocktail.cocktailName} creatorName={cocktail.creatorName}
+            cocktailName={cocktail.cocktailName}
+            creatorName={cocktail.creatorName}
             _id={cocktail._id}
 
             cocktailImage={cocktail.cocktailImage}

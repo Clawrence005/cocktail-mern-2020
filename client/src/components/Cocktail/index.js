@@ -6,13 +6,13 @@ function Cocktail(props) {
       key={props._id}>
       <div className="cocktail-inner">
         <h3 className="cocktail-title">{props.cocktailName}</h3>
-        <h4>  created by: {props.userName}</h4>
+        <h4>  created by: {props.creatorName.userName}</h4>
         <img
           className="cocktail-image"
           src={props.cocktailImage}
           alt={"image-" + props.cocktailName}
         />
-        <h4>  created by: {props.userName}</h4>
+        <h4> created by:{props.creatorName.userName}</h4>
         <br />
         <li>id: {props._id}</li>
         <strong>Ingredients:</strong>

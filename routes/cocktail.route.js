@@ -5,17 +5,17 @@ let Cocktail = require('./../model/cocktail.model');
 var User = require('mongoose').model('User');
 
 cocktailRouter.route('/').get(function (req, res) {
-  Cocktail.find({})
+  Cocktail
+    .find({})
     .populate('creatorName', ['userName'])
-    .exec().then(function (err, cocktails, ) {
+    .exec(function (err, cocktails, ) {
       if (err) {
         console.log(err);
       } else {
         res.json(cocktails);
       }
-    })
+    });
 });
-
 
 cocktailRouter.route('/create').post(function (req, res) {
   console.log('Got body:', req.body);

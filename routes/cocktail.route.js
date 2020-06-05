@@ -8,6 +8,7 @@ cocktailRouter.route('/').get(function (req, res) {
   Cocktail
     .find({})
     .populate('creatorName', ['userName'])
+    .sort({ createdAt: 'desc' })
     .exec(function (err, cocktails, ) {
       if (err) {
         console.log(err);

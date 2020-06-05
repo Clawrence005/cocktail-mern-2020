@@ -12,13 +12,13 @@ function Cocktail(props) {
           src={props.cocktailImage}
           alt={"image-" + props.cocktailName}
         />
-        <h4> created by:{props.creatorName.userName}</h4>
+        <h4> created by: {props.creatorName.userName}</h4>
         <br />
         <li>id: {props._id}</li>
-        <strong>Ingredients:</strong>
-        {props.ingredients.map((subItem, index) =>
-
-          <p key={index}>{subItem}</p>)}
+        <strong>Ingredients: </strong>
+        {props.ingredients.map((subItem, index) => <p key={index}>{subItem} </p>)}
+        <strong>details: </strong>
+        {props.details.map((subItem, index) => <p key={index}>{subItem}</p>)}
         {/* <p>  isShaken: {props.isShaken}</p> */}
         <span><strong>method:  </strong>{props.method}</span>
         <br />

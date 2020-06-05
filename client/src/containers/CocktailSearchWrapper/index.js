@@ -20,6 +20,7 @@ function CocktailSearchWrapper(props) {
             isShaken={cocktail.isShaken}
             garnish={cocktail.garnish}
             ingredients={cocktail.ingredients}
+            details={cocktail.details}
             method={cocktail.method}
             glass={cocktail.glass}
           />

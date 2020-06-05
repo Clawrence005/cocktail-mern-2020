@@ -1,24 +1,29 @@
 
 let cocktailRouter = require('express').Router();
 let Cocktail = require('./../model/cocktail.model');
+// let User = require('./../model/user.model');
+var User = require('mongoose').model('User');
 
 cocktailRouter.route('/').get(function (req, res) {
-  Cocktail.find({}, function (err, cocktails) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.json(cocktails);
-    }
-  });
+  Cocktail.find({})
+    .populate('creatorName', ['userName'])
+    .exec().then(function (err, cocktails, ) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(cocktails);
+      }
+    })
 });
+
 
 cocktailRouter.route('/create').post(function (req, res) {
   console.log('Got body:', req.body);
   let cocktail = new Cocktail({
     cocktailName: req.body.cocktailName,
-    // cocktailId: req.body.cocktailId,
-    // userId: req.body.cocktailId,
+
     creatorName: req.body.creatorName,
+
     cocktailImage: req.body.cocktailImage,
     isClassic: req.body.isClassic,
     isShaken: req.body.isShaken,

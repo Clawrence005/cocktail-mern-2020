@@ -10,12 +10,13 @@ let CocktailSchema = new Schema({
   // date: { type: Date, trim: true, default: Date.now },
   cocktailName: { type: String },
   // cocktailId: [UserSchema], 
-  creatorName: { type: String },
-  // author: {
-  //   type: Schema.Types.ObjectId, ref: 'User'
-  // },
-  cocktailImage: [Schema.Types.Mixed],
+  creatorName: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
 
+  cocktailImage: { type: String, required: true, default: './assets/img/cocktail1.jpeg' },
   isClassic: { type: Boolean },
   isShaken: { type: Boolean },
   isDoubleStrain: { type: Boolean },

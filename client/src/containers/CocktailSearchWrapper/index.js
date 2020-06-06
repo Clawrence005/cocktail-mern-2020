@@ -6,9 +6,9 @@ function CocktailSearchWrapper(props) {
   return (
 
     <div className="cocktails-wrapper">
-      {/* <h2 className="section-title" >Title</h2> */}
+
       <div className="cocktail-list-grid">
-        {/* {props.children} */}
+
         {props.list.map((cocktail) => (
           <Cocktail
             key={cocktail._id}

@@ -4,13 +4,12 @@ import CocktailSearchWrapper from '../containers/CocktailSearchWrapper';
 import RecipeForm from '../components/RecipeForm';
 import axios from 'axios';
 
-
-
 class CocktailPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       cocktails: [],
+      users: [],
       titleClassic: 'Classic Cocktails', titleNonClassic: 'NonClassicCocktail',
     }
   }
@@ -18,6 +17,7 @@ class CocktailPage extends React.Component {
   componentDidMount() {
     console.log('--cmpntDidMount Cocktails page');
     this.getCocktails();
+    this.getUsers();
   }
 
   getCocktails() {
@@ -26,14 +26,25 @@ class CocktailPage extends React.Component {
       console.log('cocktails: ', res.data)
       this.setState({ cocktails });
 
-    }).catch(function (error) {
-      console.log(error);
     })
+      .catch(function (error) {
+        console.log(error);
+      })
   }
+  getUsers() {
+    axios.get('http://localhost:4000/users/').then(res => {
+      const users = res.data;
+      console.log('Users called from cocktail ', users)
+      this.setState({ users })
+    })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
 
   render() {
     console.log('--rendering Cocktails page');
-
 
     return (
       <div className="cocktail-page-main">

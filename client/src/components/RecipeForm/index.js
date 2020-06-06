@@ -17,6 +17,79 @@ class RecipeForm extends React.Component {
       method: '',
       glass: 'coupe',
       chosenColor: 'blue',
+      // hard coding users as a place holder, need to bring in users state
+      users: [
+        {
+          "userImage": "./assets/img/elvis.jpg",
+          "_id": "5eae6679ba922ac9dc21b0f9",
+          "userName": "Elvis",
+          "email": "the_king_01@yahoo.com",
+          "bio": "I'm the king...",
+          "createdAt": "2020-05-03T06:36:41.739Z",
+          "updatedAt": "2020-05-20T01:28:11.980Z",
+          "__v": 0
+        },
+        {
+          "userImage": "./assets/img/cavill.jpg",
+          "_id": "5eae674fba922ac9dc21b0fa",
+          "userName": "Henry Cavill",
+          "email": "superman_01@gmail.com",
+          "bio": "I'm superman.",
+          "createdAt": "2020-05-03T06:40:15.685Z",
+          "updatedAt": "2020-05-20T01:37:08.162Z",
+          "__v": 0
+        },
+        {
+          "userImage": "./assets/img/bomer.jpg",
+          "_id": "5ec456b17e40a85c2c04841e",
+          "userName": "Matt Bomer",
+          "email": "matthew_bomer@gmail.com",
+          "bio": "hi there",
+          "createdAt": "2020-05-19T21:59:13.118Z",
+          "updatedAt": "2020-05-20T01:30:13.485Z",
+          "__v": 0
+        },
+        {
+          "userImage": "./assets/img/elvis.jpg",
+          "_id": "5ec45947d33e855c748db375",
+          "userName": "Elvis the clone",
+          "email": "thecloneking@gmail.com",
+          "bio": "I'm a clone of the king of rock and roll.",
+          "createdAt": "2020-05-19T22:10:15.660Z",
+          "updatedAt": "2020-05-20T01:34:16.752Z",
+          "__v": 0
+        },
+        {
+          "userImage": "./assets/img/caan.jpg",
+          "_id": "5ec46b5e5fa5135cc1f649bb",
+          "userName": "Scott Caan",
+          "email": "scott_caan06@gmail.com",
+          "bio": "im an actor",
+          "createdAt": "2020-05-19T23:27:26.217Z",
+          "updatedAt": "2020-05-20T01:31:47.187Z",
+          "__v": 0
+        },
+        {
+          "userImage": "./assets/img/defaultAvatar.svg",
+          "_id": "5ec4713bc749eb5dbd1f0a06",
+          "userName": "sarah",
+          "email": "sarah333@hotmail.com",
+          "bio": "I'm a user.",
+          "createdAt": "2020-05-19T23:52:27.900Z",
+          "updatedAt": "2020-05-20T02:03:55.359Z",
+          "__v": 0
+        },
+        {
+          "userImage": "./assets/img/defaultAvatar.svg",
+          "_id": "5ec471b5aadb185dcf97b1af",
+          "userName": "Paul",
+          "email": "paul_user@yahoo.com",
+          "bio": "im paul",
+          "createdAt": "2020-05-19T23:54:29.495Z",
+          "updatedAt": "2020-05-19T23:54:29.495Z",
+          "__v": 0
+        }
+      ]
     };
     this.handleCocktailFormChange = this.handleCocktailFormChange.bind(this)
     this.handleCocktailFormSubmit = this.handleCocktailFormSubmit.bind(this)
@@ -28,6 +101,11 @@ class RecipeForm extends React.Component {
     type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({
       [name]: value
     })
+  }
+
+  handleCocktailPopulateUsers = (event) => {
+    // this.setState({ [event.target.name]: event.target.value });
+    this.setState({ [event.target.name]: event.target.value })
   }
 
   handleCocktailFormSubmit = (event) => {
@@ -106,14 +184,24 @@ chosen color:    ${this.state.chosenColor}
         <br />
 
         <label><h4>Creator Name</h4></label>
-        <input
+        <select
           className="neumorphism-negative-template"
-          type='text'
+          type='select'
           name="creatorName"
           placeholder="creatorName"
           value={this.state.creatorName}
-          onChange={this.handleCocktailFormChange}
-        />
+          onChange={this.handleCocktailPopulateUsers}
+        >
+          {this.state.users.map(user => (
+            <option
+              key={user._id}
+              nameLabel={user.userName}
+              value={user._id}
+            >
+              {user.userName}
+            </option>
+          ))}
+        </select>
         <br />
         {/* <h4>Image</h4>
         <input

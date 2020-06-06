@@ -17,7 +17,7 @@ class RecipeForm extends React.Component {
       method: '',
       glass: 'coupe',
       chosenColor: 'blue',
-      // hard coding users as a place holder, need to bring in users state
+      //hard coded
       users: [
         {
           "userImage": "./assets/img/elvis.jpg",
@@ -93,6 +93,7 @@ class RecipeForm extends React.Component {
     };
     this.handleCocktailFormChange = this.handleCocktailFormChange.bind(this)
     this.handleCocktailFormSubmit = this.handleCocktailFormSubmit.bind(this)
+    this.handleCocktailPopulateUsers = this.handleCocktailPopulateUsers.bind(this)
   }
 
   handleCocktailFormChange = (event) => {
@@ -103,9 +104,9 @@ class RecipeForm extends React.Component {
     })
   }
 
+
   handleCocktailPopulateUsers = (event) => {
-    // this.setState({ [event.target.name]: event.target.value });
-    this.setState({ [event.target.name]: event.target.value })
+    this.setState({ creatorName: event.target.value })
   }
 
   handleCocktailFormSubmit = (event) => {
@@ -185,23 +186,25 @@ chosen color:    ${this.state.chosenColor}
 
         <label><h4>Creator Name</h4></label>
         <select
-          className="neumorphism-negative-template"
-          type='select'
-          name="creatorName"
-          placeholder="creatorName"
+          // className="neumorphism-negative-template"
+          // type='text'
+          // name="creatorName"
+          // placeholder="creatorName"
           value={this.state.creatorName}
           onChange={this.handleCocktailPopulateUsers}
         >
           {this.state.users.map(user => (
             <option
               key={user._id}
-              nameLabel={user.userName}
+
               value={user._id}
             >
               {user.userName}
             </option>
           ))}
         </select>
+
+
         <br />
         {/* <h4>Image</h4>
         <input

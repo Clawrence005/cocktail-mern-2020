@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const PORT = process.env.PORT || 4000;
 const path = require('path')
 const colors = require('colors');
+require('dotenv').config();
 
 let Cocktail = require('./model/cocktail.model')
 let User = require('./model/user.model')
@@ -59,3 +60,38 @@ app.get("*", (req, res) => {
 app.listen(process.env.PORT || PORT, function () {
   console.log(colors.brightBlue("Server is running on Port: " + PORT));
 });
+
+// var express = require("express");
+// var mongoose = require("mongoose");
+
+// // Require all models
+// var db = require("./models");
+// console.log(db);
+
+// // Connect to MongoDB
+// mongoose.connect("mongodb://localhost/grocerydb", { useNewUrlParser: true });
+
+// var PORT = 3000;
+
+// // Initialize Express
+// var app = express();
+
+// // Parse request body as JSON
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+
+// // Make public static folder
+// app.use(express.static("public"));
+
+// // Routes
+
+// // Home route. Currently just to make sure app is running returns hello message.
+// app.get("/", function(req, res) {
+//   res.send("Hello from demo app!");
+// });
+
+
+// // Start the server
+// app.listen(PORT, function() {
+//   console.log("Listening on port " + PORT + ".");
+// });
